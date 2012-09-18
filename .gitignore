@@ -1,0 +1,6 @@
+*.apk
+*.class
+.DS_Store
+R.java
+bin/
+Thumbs.db
