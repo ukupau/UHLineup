@@ -11,11 +11,23 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.hardware.Sensor;
+import android.hardware.SensorManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.util.Log;
+import android.view.GestureDetector;
+import android.view.GestureDetector.OnGestureListener;
 import android.view.KeyEvent;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnKeyListener;
@@ -23,7 +35,7 @@ import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.*;
 
-public class UHLineupActivity extends Activity implements OnClickListener {
+public class UHLineupActivity extends Activity implements OnClickListener, OnGestureListener {
     /** Called when the activity is first created. */
 
     ArrayList<Player> players;
@@ -37,6 +49,13 @@ public class UHLineupActivity extends Activity implements OnClickListener {
     TextView playerName;
     TextView playerHometown;
     EditText searchText;
+    
+    private static final int SWIPE_MIN_DISTANCE = 120;
+    private static final int SWIPE_MAX_OFF_PATH = 250;
+    private static final int SWIPE_THRESHOLD_VELOCITY = 200;
+
+    private GestureDetector gestureScanner;
+   
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -53,6 +72,8 @@ public class UHLineupActivity extends Activity implements OnClickListener {
         
         currentIdx = 0;
         lastIdx = 0;
+        
+        gestureScanner = new GestureDetector(this);
         
         TextView title = (TextView) findViewById(R.id.playerName);
         //title.setText("testing");
@@ -104,8 +125,8 @@ public class UHLineupActivity extends Activity implements OnClickListener {
                 player.hometown = playerObj.getString("hometown");
 
                 players.add(player);
-                Log.v("UHLineup", player.name);
-                Log.v("UHLineup", Integer.toString(player.number));
+                //Log.v("UHLineup", player.name);
+                //Log.v("UHLineup", Integer.toString(player.number));
             }
 
         } catch (Exception e) {
@@ -184,11 +205,10 @@ public class UHLineupActivity extends Activity implements OnClickListener {
         
         DisplayPlayer(currentIdx);
 
-        // TODO: Make each text box distinct
-        // TODO: Close keyboard after searching
         // TODO: Display okinas
-        // TODO: Add labels to fields
         // TODO: Remove slash in hometown and replace with line feed.
+        // TODO: Keyboard slide out type
+        // TODO: Work with different external storage locations
         
         // Note: Had problems with word wrap. Would not wrap. Don't know what caused the problem.
         //       Deleted and created a new text view which worked.
@@ -277,5 +297,133 @@ public class UHLineupActivity extends Activity implements OnClickListener {
         
 //        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent me)
+    {
+        //Log.v("UHLineup","onTouchEvent");
+    return gestureScanner.onTouchEvent(me);
+    }
+
+
+    @Override
+    public boolean onDown(MotionEvent arg0) {
+        // TODO Auto-generated method stub
+        //Log.v("UHLineup","onDown");
+        return false;
+    }
+
+
+    @Override
+    public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
+        //Log.v("UHLineup","onFling");
+        try {
+            if (Math.abs(e1.getY() - e2.getY()) > SWIPE_MAX_OFF_PATH)
+            return false;
+            // right to left swipe
+            if(e1.getX() - e2.getX() > SWIPE_MIN_DISTANCE && Math.abs(velocityX) > SWIPE_THRESHOLD_VELOCITY) {
+            //Toast.makeText(getApplicationContext(), "Left Swipe", Toast.LENGTH_SHORT).show();
+            //Log.v("UHLineup","Left Swipe");
+                if (currentIdx < lastIdx ) {
+                    currentIdx++;
+                    DisplayPlayer(currentIdx);
+                }
+            } else if (e2.getX() - e1.getX() > SWIPE_MIN_DISTANCE && Math.abs(velocityX) > SWIPE_THRESHOLD_VELOCITY) {
+            //Toast.makeText(getApplicationContext(), "Right Swipe", Toast.LENGTH_SHORT).show();
+            //Log.v("UHLineup","Right Swipe");
+                if (currentIdx > 0 ) {
+                    currentIdx--;
+                    DisplayPlayer(currentIdx);
+                }
+            }
+            else if(e1.getY() - e2.getY() > SWIPE_MIN_DISTANCE && Math.abs(velocityX) > SWIPE_THRESHOLD_VELOCITY) {
+            //Toast.makeText(getApplicationContext(), "Swipe up", Toast.LENGTH_SHORT).show();
+            //Log.v("UHLineup","Swipe up");
+            } else if (e2.getY() - e1.getY() > SWIPE_MIN_DISTANCE && Math.abs(velocityX) > SWIPE_THRESHOLD_VELOCITY) {
+            //Toast.makeText(getApplicationContext(), "Swipe down", Toast.LENGTH_SHORT).show();
+            //Log.v("UHLineup","Swipe down");
+            }
+            } catch (Exception e) {
+            // nothing
+            }
+        return true;
+        }
+
+
+    @Override
+    public void onLongPress(MotionEvent arg0) {
+        // TODO Auto-generated method stub
+        
+    }
+
+
+    @Override
+    public boolean onScroll(MotionEvent arg0, MotionEvent arg1, float arg2, float arg3) {
+        // TODO Auto-generated method stub
+        return false;
+    }
+
+
+    @Override
+    public void onShowPress(MotionEvent arg0) {
+        // TODO Auto-generated method stub
+        
+    }
+
+
+    @Override
+    public boolean onSingleTapUp(MotionEvent arg0) {
+        // TODO Auto-generated method stub
+        return false;
+    }
+    
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.main_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch (item.getItemId()) {
+//        case R.id.settings:
+//            Toast.makeText(this, "User settings", Toast.LENGTH_SHORT).show();
+//            return true;
+        case R.id.information:
+            showDialog(1);
+            return true;
+        default:
+            return super.onOptionsItemSelected(item);
+        }
+    }
+ 
+    protected Dialog onCreateDialog(int id) {
+        Dialog dialog;
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        switch(id) {
+        case 1:
+            
+            String msg =
+                     "Device information:\n"
+                     + "";
+            
+            builder.setMessage(msg)
+            .setCancelable(true)
+            .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int id) {
+                    dialog.cancel();
+                }
+            });
+            dialog = builder.create();
+            break;
+        default:
+            dialog = null;
+        }
+        return dialog;
+    }
+
+        
     
 }
