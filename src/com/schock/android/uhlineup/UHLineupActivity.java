@@ -2,8 +2,12 @@ package com.schock.android.uhlineup;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,8 +43,13 @@ public class UHLineupActivity extends Activity implements OnClickListener, OnGes
     /** Called when the activity is first created. */
 
     ArrayList<Player> players;
+    ArrayList<Player> opponents;
+    ArrayList<Player>[] rosters = new ArrayList[2];  // Will get a compiler warning here.
     int currentIdx;
+    int[] currentIndex = new int[2];
     int lastIdx;
+    int[] lastIndex = new int[2];
+    int teamNumber = 0;
     TextView playerNo;
     TextView playerPosition;
     TextView playerYear;
@@ -61,7 +70,49 @@ public class UHLineupActivity extends Activity implements OnClickListener, OnGes
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
+        
+        // Get data from external files dir (e.g. /SDCARD)
+        // If this doesn't exist, use the default data in the raw resource.
+        
+        // Note: Requires uses-permissing, WRITE_EXTERNAL_STORAGE.
+        // Otherwise path will be incorrect (e.g. just /).
+        // File path s/b <sdcard>/Android/data/com.../files
+        // Note: File is deleted when app is deleted or re-installed.
+        File fileTest = new File(getExternalFilesDir(null), "DemoFile.dat");
 
+        try {
+            // Very simple code to copy a picture from the application's
+            // resource into the external file.  Note that this code does
+            // no error checking, and assumes the picture is small (does not
+            // try to copy it in chunks).  Note that if external storage is
+            // not currently mounted this will silently fail.
+            OutputStream os = new FileOutputStream(fileTest);
+            byte[] data = new byte[1];
+            data[0] = 0;
+            os.write(data);
+            os.close();
+        } catch (IOException e) {
+            // Unable to create file, likely because external storage is
+            // not currently mounted.
+            Log.w("ExternalStorage", "Error writing " + fileTest, e);
+        }        
+
+        
+        fileTest = new File(getExternalFilesDir(null), "DemoFile.dat");
+        String s = fileTest.getAbsolutePath();
+        
+        try {
+        InputStream is = new FileInputStream(fileTest);
+        
+        int data = is.read();
+        is.close();
+        }
+        catch (IOException e) {
+        
+        }
+        
+        File sdcard2 = Environment.getExternalStorageDirectory();
+        
         playerNo = (TextView) findViewById(R.id.playerNo);
         playerPosition = (TextView) findViewById(R.id.playerPosition);
         playerYear = (TextView) findViewById(R.id.playerYear);
@@ -69,9 +120,16 @@ public class UHLineupActivity extends Activity implements OnClickListener, OnGes
         playerWeight = (TextView) findViewById(R.id.playerWeight);
         playerName = (TextView) findViewById(R.id.playerName);
         playerHometown = (TextView) findViewById(R.id.hometown);
-        
+
+        teamNumber = 0;
+
         currentIdx = 0;
+        currentIndex[teamNumber] = 0;
         lastIdx = 0;
+        lastIndex[teamNumber] = 0;
+
+        rosters[0] = new ArrayList<Player>();
+        rosters[1] = new ArrayList<Player>();
         
         gestureScanner = new GestureDetector(this);
         
@@ -141,28 +199,6 @@ public class UHLineupActivity extends Activity implements OnClickListener, OnGes
         
         search.setOnClickListener(this); 
         
-//        search.setOnClickListener(new View.OnClickListener() {
-//            public void onClick(View view) {
-//                int playerNumber;
-//                try {
-//                    playerNumber = Integer.parseInt(searchText.getText().toString());
-//                }
-//                catch (Exception e) {
-//                    playerNumber = 0;
-//                }
-//                
-//                for (int i = 0; i <= lastIdx; i++) {
-//                    if (players.get(i).number == playerNumber) {
-//                        currentIdx = i;
-//                        DisplayPlayer(currentIdx);
-//                    }
-//                }
-//                
-//                // Blank search string when done.
-//                searchText.setText("");
-//            }
-//          });        
-        
         next.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 if (currentIdx < lastIdx ) {
@@ -200,15 +236,18 @@ public class UHLineupActivity extends Activity implements OnClickListener, OnGes
 //                Context.INPUT_METHOD_SERVICE);
 //          imm.hideSoftInputFromWindow(search.getWindowToken(), 0);
         
+        // TODO: Does this work? Can delete?
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
-
         
         DisplayPlayer(currentIdx);
 
         // TODO: Display okinas
         // TODO: Remove slash in hometown and replace with line feed.
-        // TODO: Keyboard slide out type
+        // Keyboard slide out type. Manifest setting. No change noticed.
         // TODO: Work with different external storage locations
+        // TODO: Help info should show date, source and location of data.
+        // TODO: Add photos.
+        // TODO: Add UH and opponent using tabs.
         
         // Note: Had problems with word wrap. Would not wrap. Don't know what caused the problem.
         //       Deleted and created a new text view which worked.
