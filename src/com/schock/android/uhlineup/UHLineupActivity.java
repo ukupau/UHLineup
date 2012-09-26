@@ -64,6 +64,8 @@ public class UHLineupActivity extends Activity implements OnClickListener, OnGes
     private static final int SWIPE_THRESHOLD_VELOCITY = 200;
 
     private GestureDetector gestureScanner;
+    
+    final Context context = this;
    
 
     @Override
@@ -73,45 +75,6 @@ public class UHLineupActivity extends Activity implements OnClickListener, OnGes
         
         // Get data from external files dir (e.g. /SDCARD)
         // If this doesn't exist, use the default data in the raw resource.
-        
-        // Note: Requires uses-permissing, WRITE_EXTERNAL_STORAGE.
-        // Otherwise path will be incorrect (e.g. just /).
-        // File path s/b <sdcard>/Android/data/com.../files
-        // Note: File is deleted when app is deleted or re-installed.
-        File fileTest = new File(getExternalFilesDir(null), "DemoFile.dat");
-
-        try {
-            // Very simple code to copy a picture from the application's
-            // resource into the external file.  Note that this code does
-            // no error checking, and assumes the picture is small (does not
-            // try to copy it in chunks).  Note that if external storage is
-            // not currently mounted this will silently fail.
-            OutputStream os = new FileOutputStream(fileTest);
-            byte[] data = new byte[1];
-            data[0] = 0;
-            os.write(data);
-            os.close();
-        } catch (IOException e) {
-            // Unable to create file, likely because external storage is
-            // not currently mounted.
-            Log.w("ExternalStorage", "Error writing " + fileTest, e);
-        }        
-
-        
-        fileTest = new File(getExternalFilesDir(null), "DemoFile.dat");
-        String s = fileTest.getAbsolutePath();
-        
-        try {
-        InputStream is = new FileInputStream(fileTest);
-        
-        int data = is.read();
-        is.close();
-        }
-        catch (IOException e) {
-        
-        }
-        
-        File sdcard2 = Environment.getExternalStorageDirectory();
         
         playerNo = (TextView) findViewById(R.id.playerNo);
         playerPosition = (TextView) findViewById(R.id.playerPosition);
@@ -340,15 +303,16 @@ public class UHLineupActivity extends Activity implements OnClickListener, OnGes
     @Override
     public boolean onTouchEvent(MotionEvent me)
     {
-        //Log.v("UHLineup","onTouchEvent");
-    return gestureScanner.onTouchEvent(me);
+        super.onTouchEvent(me);
+        Log.v("UHLineup","onTouchEvent");
+    return false; // gestureScanner.onTouchEvent(me);
     }
 
 
     @Override
     public boolean onDown(MotionEvent arg0) {
         // TODO Auto-generated method stub
-        //Log.v("UHLineup","onDown");
+        Log.v("UHLineup","onDown");
         return false;
     }
 
@@ -391,7 +355,8 @@ public class UHLineupActivity extends Activity implements OnClickListener, OnGes
 
     @Override
     public void onLongPress(MotionEvent arg0) {
-        // TODO Auto-generated method stub
+        Toast.makeText(context, "Long press", Toast.LENGTH_SHORT);
+        Log.v("UHLineup","Long press");
         
     }
 
