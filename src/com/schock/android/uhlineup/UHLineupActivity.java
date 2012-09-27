@@ -33,13 +33,15 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.Window;
 import android.view.View.OnClickListener;
 import android.view.View.OnKeyListener;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.*;
+import android.widget.AdapterView.OnItemClickListener;
 
-public class UHLineupActivity extends Activity implements OnClickListener, OnGestureListener {
+public class UHLineupActivity extends Activity implements OnClickListener {
     /** Called when the activity is first created. */
 
     ArrayList<Player> players;
@@ -50,6 +52,8 @@ public class UHLineupActivity extends Activity implements OnClickListener, OnGes
     int lastIdx;
     int[] lastIndex = new int[2];
     int teamNumber = 0;
+    private int[] assignedNumbers;
+    
     TextView playerNo;
     TextView playerPosition;
     TextView playerYear;
@@ -63,7 +67,8 @@ public class UHLineupActivity extends Activity implements OnClickListener, OnGes
     private static final int SWIPE_MAX_OFF_PATH = 250;
     private static final int SWIPE_THRESHOLD_VELOCITY = 200;
 
-    private GestureDetector gestureScanner;
+    static private String TAG = "UHLineup";
+    private GestureDetector gestureDetector;
     
     final Context context = this;
    
@@ -94,8 +99,6 @@ public class UHLineupActivity extends Activity implements OnClickListener, OnGes
         rosters[0] = new ArrayList<Player>();
         rosters[1] = new ArrayList<Player>();
         
-        gestureScanner = new GestureDetector(this);
-        
         TextView title = (TextView) findViewById(R.id.playerName);
         //title.setText("testing");
 
@@ -122,6 +125,7 @@ public class UHLineupActivity extends Activity implements OnClickListener, OnGes
 
         //title.setText(text.toString());
 
+        assignedNumbers = new int[100];
         players = new ArrayList<Player>();
 
         try {
@@ -148,6 +152,7 @@ public class UHLineupActivity extends Activity implements OnClickListener, OnGes
                 players.add(player);
                 //Log.v("UHLineup", player.name);
                 //Log.v("UHLineup", Integer.toString(player.number));
+                assignedNumbers[player.number]= 1; 
             }
 
         } catch (Exception e) {
@@ -156,31 +161,31 @@ public class UHLineupActivity extends Activity implements OnClickListener, OnGes
         }
         
         Button search = (Button)findViewById(R.id.search);
-        Button next = (Button)findViewById(R.id.next);
-        Button prev = (Button)findViewById(R.id.prev);
+//        Button next = (Button)findViewById(R.id.next);
+//        Button prev = (Button)findViewById(R.id.prev);
         searchText = (EditText)findViewById(R.id.searchText);
         
         search.setOnClickListener(this); 
         
-        next.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                if (currentIdx < lastIdx ) {
-                    currentIdx++;
-                    DisplayPlayer(currentIdx);
-                }
-                
-            }
-        });
-        
-        prev.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                if (currentIdx > 0 ) {
-                    currentIdx--;
-                    DisplayPlayer(currentIdx);
-                }
-                
-            }
-        });
+//        next.setOnClickListener(new View.OnClickListener() {
+//            public void onClick(View view) {
+//                if (currentIdx < lastIdx ) {
+//                    currentIdx++;
+//                    DisplayPlayer(currentIdx);
+//                }
+//                
+//            }
+//        });
+//        
+//        prev.setOnClickListener(new View.OnClickListener() {
+//            public void onClick(View view) {
+//                if (currentIdx > 0 ) {
+//                    currentIdx--;
+//                    DisplayPlayer(currentIdx);
+//                }
+//                
+//            }
+//        });
 
         // This enables to GO button on the keyboard to invoke the search action.
         // android:imeOptions="actionGo" must be set on the EditText field.
@@ -203,6 +208,61 @@ public class UHLineupActivity extends Activity implements OnClickListener, OnGes
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
         
         DisplayPlayer(currentIdx);
+        
+        LinearLayout view = (LinearLayout)findViewById(R.id.LinearLayout0);
+        
+        view.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                return gestureDetector.onTouchEvent(event);
+            }
+        });
+ 
+        gestureDetector = new GestureDetector(new GestureDetector.SimpleOnGestureListener() {
+            @Override
+            public void onLongPress(MotionEvent e) {
+                Log.d(TAG, "Long Press event");
+                showDialog(1);
+            }
+ 
+            @Override
+            public boolean onDoubleTap(MotionEvent e) {
+                Log.d(TAG, "Double Tap event");
+                showDialog(1);
+                return true;
+            }
+ 
+            @Override
+            public boolean onDown(MotionEvent e) {
+                return true;
+            }
+            
+            private static final int SWIPE_MIN_DISTANCE = 60;
+            private static final int SWIPE_THRESHOLD_VELOCITY = 100;
+
+            @Override
+            public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
+                if(e1.getX() - e2.getX() > SWIPE_MIN_DISTANCE && Math.abs(velocityX) > SWIPE_THRESHOLD_VELOCITY) {
+                    Log.d(TAG, "Right to left");
+                    if (currentIdx < lastIdx ) {
+                        currentIdx++;
+                        DisplayPlayer(currentIdx);
+                    }
+                    return true;
+                 } else if (e2.getX() - e1.getX() > SWIPE_MIN_DISTANCE && Math.abs(velocityX) > SWIPE_THRESHOLD_VELOCITY) {
+                     Log.d(TAG, "Left to right");
+                     if (currentIdx > 0 ) {
+                         currentIdx--;
+                         DisplayPlayer(currentIdx);
+                     }
+                     
+                    return true;
+                 }
+                 return false;
+            }            
+        });
+        gestureDetector.setIsLongpressEnabled(true);
+        
 
         // TODO: Display okinas
         // TODO: Remove slash in hometown and replace with line feed.
@@ -273,9 +333,32 @@ public class UHLineupActivity extends Activity implements OnClickListener, OnGes
         }
     }
 
+    public void findPlayer(int playerNumber) {
+        // TODO: Need to handle case where the number does not exist.
+        // It is assumed the player numbers are in order, lowest to highest.
+        for (int i = 0; i <= lastIdx; i++) {
+            if (players.get(i).number == playerNumber) {
+                currentIdx = i;
+                DisplayPlayer(currentIdx);
+                break;
+            }
+            else if (players.get(i).number > playerNumber) {
+                Toast.makeText(context, "Player not found", Toast.LENGTH_SHORT).show();
+                currentIdx = i;
+                DisplayPlayer(currentIdx);
+                break;
+            }
+        }
+    }
 
+    
     @Override
     public void onClick(View arg0) {
+    showDialog(1);
+    }
+
+    //@Override
+    public void onClick2(View arg0) {
         
         closeSoftKeyboard();
         
@@ -287,10 +370,18 @@ public class UHLineupActivity extends Activity implements OnClickListener, OnGes
             playerNumber = 0;
         }
         
+        // TODO: Need to handle case where the number does not exist.
+        // It is assumed the player numbers are in order, lowest to highest.
         for (int i = 0; i <= lastIdx; i++) {
             if (players.get(i).number == playerNumber) {
                 currentIdx = i;
                 DisplayPlayer(currentIdx);
+                break;
+            }
+            else if (players.get(i).number > playerNumber) {
+                currentIdx = i;
+                DisplayPlayer(currentIdx);
+                break;
             }
         }
        
@@ -300,87 +391,6 @@ public class UHLineupActivity extends Activity implements OnClickListener, OnGes
 //        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
    }
 
-    @Override
-    public boolean onTouchEvent(MotionEvent me)
-    {
-        super.onTouchEvent(me);
-        Log.v("UHLineup","onTouchEvent");
-    return false; // gestureScanner.onTouchEvent(me);
-    }
-
-
-    @Override
-    public boolean onDown(MotionEvent arg0) {
-        // TODO Auto-generated method stub
-        Log.v("UHLineup","onDown");
-        return false;
-    }
-
-
-    @Override
-    public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
-        //Log.v("UHLineup","onFling");
-        try {
-            if (Math.abs(e1.getY() - e2.getY()) > SWIPE_MAX_OFF_PATH)
-            return false;
-            // right to left swipe
-            if(e1.getX() - e2.getX() > SWIPE_MIN_DISTANCE && Math.abs(velocityX) > SWIPE_THRESHOLD_VELOCITY) {
-            //Toast.makeText(getApplicationContext(), "Left Swipe", Toast.LENGTH_SHORT).show();
-            //Log.v("UHLineup","Left Swipe");
-                if (currentIdx < lastIdx ) {
-                    currentIdx++;
-                    DisplayPlayer(currentIdx);
-                }
-            } else if (e2.getX() - e1.getX() > SWIPE_MIN_DISTANCE && Math.abs(velocityX) > SWIPE_THRESHOLD_VELOCITY) {
-            //Toast.makeText(getApplicationContext(), "Right Swipe", Toast.LENGTH_SHORT).show();
-            //Log.v("UHLineup","Right Swipe");
-                if (currentIdx > 0 ) {
-                    currentIdx--;
-                    DisplayPlayer(currentIdx);
-                }
-            }
-            else if(e1.getY() - e2.getY() > SWIPE_MIN_DISTANCE && Math.abs(velocityX) > SWIPE_THRESHOLD_VELOCITY) {
-            //Toast.makeText(getApplicationContext(), "Swipe up", Toast.LENGTH_SHORT).show();
-            //Log.v("UHLineup","Swipe up");
-            } else if (e2.getY() - e1.getY() > SWIPE_MIN_DISTANCE && Math.abs(velocityX) > SWIPE_THRESHOLD_VELOCITY) {
-            //Toast.makeText(getApplicationContext(), "Swipe down", Toast.LENGTH_SHORT).show();
-            //Log.v("UHLineup","Swipe down");
-            }
-            } catch (Exception e) {
-            // nothing
-            }
-        return true;
-        }
-
-
-    @Override
-    public void onLongPress(MotionEvent arg0) {
-        Toast.makeText(context, "Long press", Toast.LENGTH_SHORT);
-        Log.v("UHLineup","Long press");
-        
-    }
-
-
-    @Override
-    public boolean onScroll(MotionEvent arg0, MotionEvent arg1, float arg2, float arg3) {
-        // TODO Auto-generated method stub
-        return false;
-    }
-
-
-    @Override
-    public void onShowPress(MotionEvent arg0) {
-        // TODO Auto-generated method stub
-        
-    }
-
-
-    @Override
-    public boolean onSingleTapUp(MotionEvent arg0) {
-        // TODO Auto-generated method stub
-        return false;
-    }
-    
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -404,30 +414,71 @@ public class UHLineupActivity extends Activity implements OnClickListener, OnGes
     }
  
     protected Dialog onCreateDialog(int id) {
-        Dialog dialog;
+        Dialog dialog = new Dialog(context);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         switch(id) {
         case 1:
             
-            String msg =
-                     "Device information:\n"
-                     + "";
+            // custom dialog
+            dialog.setContentView(R.layout.number_grid);
             
-            builder.setMessage(msg)
-            .setCancelable(true)
-            .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                public void onClick(DialogInterface dialog, int id) {
-                    dialog.cancel();
+            GridView gridview = (GridView) dialog.findViewById(R.id.gridview);
+ 
+            ImageAdapter imageAdapter = new ImageAdapter(this);
+            
+//            int[] playerNumbers = new int[100];
+//            for (int i = 0; i <= 99; i++) {
+//                playerNumbers[i] = 0;
+//            }
+//            
+//            for (int i = 0; i <= lastIdx; i++) {
+//                playerNumbers[players.get(i).number] = 1;
+//            }
+            imageAdapter.playerNumbers = assignedNumbers; // playerNumbers;
+            
+            gridview.setAdapter(imageAdapter);   
+            
+            int iDisplayWidth = getResources().getDisplayMetrics().widthPixels - 30 ;
+
+            int iImageWidth = (iDisplayWidth / 10 ); 
+            Log.v("GridTest",Integer.toString(iDisplayWidth));
+            Log.v("GridTest","padding: " + Integer.toString(gridview.getListPaddingLeft()));
+            Log.v("GridTest","padding left: " + Integer.toString(gridview.getPaddingLeft()));
+            Log.v("GridTest","padding right: " + Integer.toString(gridview.getPaddingRight()));
+            gridview.setColumnWidth( iImageWidth );
+            gridview.setStretchMode( GridView.NO_STRETCH ) ;   
+            
+            gridview.setOnItemClickListener(new OnItemClickListener() {
+                public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
+                    //Toast.makeText(context, "" + position, Toast.LENGTH_SHORT).show();
+                    //TextView view = (TextView)v;
+                    dismissDialog(1);
+                    findPlayer(position);
                 }
             });
-            dialog = builder.create();
+           
             break;
+        case 2:
+            String msg =
+            "Device information:\n"
+            + "";
+   
+   builder.setMessage(msg)
+   .setCancelable(true)
+   .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+       public void onClick(DialogInterface dialog, int id) {
+           dialog.cancel();
+       }
+   });
+   dialog = builder.create();
+   break;
+            
         default:
-            dialog = null;
+            //dialog = null;
         }
         return dialog;
     }
-
-        
+    
     
 }

@@ -40,10 +40,17 @@ public class ImageAdapter extends BaseAdapter {
         textView.setText(Integer.toString(position));
         textView.setTextSize(20);
         textView.setPadding(0, 5, 0, 5);
-        textView.setBackgroundResource(color.black);
-        textView.setTextColor(Color.WHITE);
-        
+        //textView.setBackgroundResource(color.black);
+        //textView.setTextColor(Color.WHITE);
+
+        if (playerNumbers[position] == 0) {
+            //textView.setVisibility(View.INVISIBLE);
+            textView.setClickable(false);
+            textView.setTextColor(Color.GRAY);
+        }
         return textView;
     }
+    
+    public int[] playerNumbers;
 
 }
