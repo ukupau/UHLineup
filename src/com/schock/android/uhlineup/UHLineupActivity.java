@@ -19,6 +19,8 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.hardware.Sensor;
 import android.hardware.SensorManager;
 import android.os.Build;
@@ -62,6 +64,8 @@ public class UHLineupActivity extends Activity implements OnClickListener {
     TextView playerName;
     TextView playerHometown;
     EditText searchText;
+    ImageView imageView;
+    BitmapFactory.Options options;
     
     private static final int SWIPE_MIN_DISTANCE = 120;
     private static final int SWIPE_MAX_OFF_PATH = 250;
@@ -148,6 +152,7 @@ public class UHLineupActivity extends Activity implements OnClickListener {
                 player.year = playerObj.getString("year");
                 player.position = playerObj.getString("position");
                 player.hometown = playerObj.getString("hometown");
+                player.image = playerObj.getString("image");
 
                 players.add(player);
                 //Log.v("UHLineup", player.name);
@@ -207,8 +212,6 @@ public class UHLineupActivity extends Activity implements OnClickListener {
         // TODO: Does this work? Can delete?
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
         
-        DisplayPlayer(currentIdx);
-        
         LinearLayout view = (LinearLayout)findViewById(R.id.LinearLayout0);
         
         view.setOnTouchListener(new View.OnTouchListener() {
@@ -263,6 +266,10 @@ public class UHLineupActivity extends Activity implements OnClickListener {
         });
         gestureDetector.setIsLongpressEnabled(true);
         
+        imageView = (ImageView)findViewById(R.id.imageView1);
+        
+        options = new BitmapFactory.Options();
+        options.inSampleSize = 1;
 
         // TODO: Display okinas
         // TODO: Remove slash in hometown and replace with line feed.
@@ -274,6 +281,9 @@ public class UHLineupActivity extends Activity implements OnClickListener {
         
         // Note: Had problems with word wrap. Would not wrap. Don't know what caused the problem.
         //       Deleted and created a new text view which worked.
+
+        DisplayPlayer(currentIdx);
+
     }
     
     
@@ -286,6 +296,18 @@ public class UHLineupActivity extends Activity implements OnClickListener {
             playerWeight.setText(Integer.toString(players.get(idx).weight));
             playerName.setText(players.get(idx).name);
             playerHometown.setText(players.get(idx).hometown);
+//            BitmapFactory.Options options = new BitmapFactory.Options();
+//            options.inSampleSize = 2;
+            Bitmap bm;
+            if (players.get(idx).number == 1) {
+                bm = BitmapFactory.decodeFile("/sdcard/uhlineup/Edwards_Mike12_7844.jpg", options);
+            }
+            else {
+                bm = BitmapFactory.decodeFile("/sdcard/uhlineup/UHWarriors1.png", options);
+            }
+            bm = BitmapFactory.decodeFile("/sdcard/uhlineup/" + players.get(idx).image, options);
+            imageView.setImageBitmap(bm);         
+            
         }
     }
     
@@ -406,7 +428,7 @@ public class UHLineupActivity extends Activity implements OnClickListener {
 //            Toast.makeText(this, "User settings", Toast.LENGTH_SHORT).show();
 //            return true;
         case R.id.information:
-            showDialog(1);
+            showDialog(2);
             return true;
         default:
             return super.onOptionsItemSelected(item);

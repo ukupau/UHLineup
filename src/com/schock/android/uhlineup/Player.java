@@ -8,5 +8,5 @@ public class Player {
     public String height;
     public String position;
     public String hometown;
-    public String photoId;
+    public String image;
 }
