@@ -33,7 +33,7 @@
                     android:id="@+id/playerNo"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="right|top"
+                    android:gravity="top|center"
                     android:paddingRight="20dp"
                     android:text="99"
                     android:textAppearance="?android:attr/textAppearanceLarge"
@@ -148,7 +148,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:paddingTop="5dp"
-            android:text="Large Text"
+            android:text="Player name"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textSize="30dp" />
 
@@ -159,7 +159,7 @@
             android:layout_weight="1"
             android:paddingBottom="5dp"
             android:paddingTop="5dp"
-            android:text="Large Text. I want to make this word wrap."
+            android:text="Player hometown"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textSize="30dp" />
 

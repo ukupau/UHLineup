@@ -67,9 +67,9 @@ public class UHLineupActivity extends Activity implements OnClickListener {
     ImageView imageView;
     BitmapFactory.Options options;
     
-    private static final int SWIPE_MIN_DISTANCE = 120;
-    private static final int SWIPE_MAX_OFF_PATH = 250;
-    private static final int SWIPE_THRESHOLD_VELOCITY = 200;
+//    private static final int SWIPE_MIN_DISTANCE = 120;
+//    private static final int SWIPE_MAX_OFF_PATH = 250;
+//    private static final int SWIPE_THRESHOLD_VELOCITY = 200;
 
     static private String TAG = "UHLineup";
     private GestureDetector gestureDetector;
@@ -111,6 +111,7 @@ public class UHLineupActivity extends Activity implements OnClickListener {
         // Get the text file
         // TODO: Test for missing file should go here
         File file = new File(sdcard, "uhlineup/uhlineup.json");
+        if (file.exists()) {
 
         // Read text from file
         StringBuilder text = new StringBuilder();
@@ -271,18 +272,22 @@ public class UHLineupActivity extends Activity implements OnClickListener {
         options = new BitmapFactory.Options();
         options.inSampleSize = 1;
 
-        // TODO: Display okinas
         // TODO: Remove slash in hometown and replace with line feed.
         // Keyboard slide out type. Manifest setting. No change noticed.
         // TODO: Work with different external storage locations
         // TODO: Help info should show date, source and location of data.
-        // TODO: Add photos.
         // TODO: Add UH and opponent using tabs.
+        // TODO: Character in Ne'quan
+        // TODO: Sliding door animation
         
         // Note: Had problems with word wrap. Would not wrap. Don't know what caused the problem.
         //       Deleted and created a new text view which worked.
 
         DisplayPlayer(currentIdx);
+        }
+        else {
+            showDialog(3);
+        }
 
     }
     
@@ -299,12 +304,12 @@ public class UHLineupActivity extends Activity implements OnClickListener {
 //            BitmapFactory.Options options = new BitmapFactory.Options();
 //            options.inSampleSize = 2;
             Bitmap bm;
-            if (players.get(idx).number == 1) {
-                bm = BitmapFactory.decodeFile("/sdcard/uhlineup/Edwards_Mike12_7844.jpg", options);
-            }
-            else {
-                bm = BitmapFactory.decodeFile("/sdcard/uhlineup/UHWarriors1.png", options);
-            }
+//            if (players.get(idx).number == 1) {
+//                bm = BitmapFactory.decodeFile("/sdcard/uhlineup/Edwards_Mike12_7844.jpg", options);
+//            }
+//            else {
+//                bm = BitmapFactory.decodeFile("/sdcard/uhlineup/UHWarriors1.png", options);
+//            }
             bm = BitmapFactory.decodeFile("/sdcard/uhlineup/" + players.get(idx).image, options);
             imageView.setImageBitmap(bm);         
             
@@ -496,6 +501,21 @@ public class UHLineupActivity extends Activity implements OnClickListener {
    dialog = builder.create();
    break;
             
+        case 3:
+            String msg2 = "Player data not found.";
+   
+   builder.setMessage(msg2)
+   .setCancelable(true)
+   .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+       public void onClick(DialogInterface dialog, int id) {
+           dialog.cancel();
+           finish();
+           Log.v(TAG,"Attempting to close app");
+      }
+   });
+   dialog = builder.create();
+   Log.v(TAG,"Missing player data dialog");
+   break;
         default:
             //dialog = null;
         }
