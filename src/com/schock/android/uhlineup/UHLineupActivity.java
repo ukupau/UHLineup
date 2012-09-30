@@ -67,6 +67,8 @@ public class UHLineupActivity extends Activity implements OnClickListener {
     ImageView imageView;
     BitmapFactory.Options options;
     
+    File sdcard;
+    
 //    private static final int SWIPE_MIN_DISTANCE = 120;
 //    private static final int SWIPE_MAX_OFF_PATH = 250;
 //    private static final int SWIPE_THRESHOLD_VELOCITY = 200;
@@ -107,7 +109,7 @@ public class UHLineupActivity extends Activity implements OnClickListener {
         //title.setText("testing");
 
         // Find the directory for the SD Card using the API
-        File sdcard = Environment.getExternalStorageDirectory();
+        sdcard = Environment.getExternalStorageDirectory();
         // Get the text file
         // TODO: Test for missing file should go here
         File file = new File(sdcard, "uhlineup/uhlineup.json");
@@ -277,8 +279,10 @@ public class UHLineupActivity extends Activity implements OnClickListener {
         // TODO: Work with different external storage locations
         // TODO: Help info should show date, source and location of data.
         // TODO: Add UH and opponent using tabs.
-        // TODO: Character in Ne'quan
         // TODO: Sliding door animation
+        // TODO: Find by name
+        // TODO: Store default images as resource
+        // TODO: Get default image from resource
         
         // Note: Had problems with word wrap. Would not wrap. Don't know what caused the problem.
         //       Deleted and created a new text view which worked.
@@ -310,8 +314,16 @@ public class UHLineupActivity extends Activity implements OnClickListener {
 //            else {
 //                bm = BitmapFactory.decodeFile("/sdcard/uhlineup/UHWarriors1.png", options);
 //            }
-            bm = BitmapFactory.decodeFile("/sdcard/uhlineup/" + players.get(idx).image, options);
-            imageView.setImageBitmap(bm);         
+            
+            // TODO: /mnt/sdcard vs /sdcard.
+            File file = new File(sdcard, "/uhlineup/" + players.get(idx).image);
+            if (file.exists()) {
+                bm = BitmapFactory.decodeFile("/sdcard/uhlineup/" + players.get(idx).image, options);
+                imageView.setImageBitmap(bm);
+            }
+            else {
+                imageView.setImageResource(R.drawable.uhwarriors1);
+            }
             
         }
     }
