@@ -1,105 +1,106 @@
-{"players":[
-{"number":1,"position":"DB","year":"Jr","height":"5-10","weight":180,"name":"Mike Edwards","hometown":"1L Cleveland, OH/Coffeyville CC","image":"Edwards_Mike12_7844.jpg"}
-,{"number":2,"position":"WR","year":"Jr","height":"5-7","weight":145,"name":"Allen Sampson","hometown":"2L Tampa, FL/Plant HS","image":"Sampson_Allen12_6829.jpg"}
-,{"number":2,"position":"DB","year":"Jr","height":"6-0","weight":175,"name":"Tony Grimes","hometown":"JC Davie, FL/Arizona Western College","image":"Grimes_Tony12_7961.jpg"}
-,{"number":3,"position":"LB","year":"So","height":"6-3","weight":235,"name":"TJ Taimatuia","hometown":"1L Fagasa, American Samoa/Artesia HS","image":"Taimatuia_TJ12_6929.jpg"}
-,{"number":4,"position":"RB","year":"Fr","height":"6-0","weight":190,"name":"Will Gregory","hometown":"RS Compton, CA/Dominguez HS","image":"Gregory_Will12_6841.jpg"}
-,{"number":5,"position":"WR","year":"Jr","height":"6-0","weight":190,"name":"Billy Ray Stutzmann","hometown":"2L Honolulu, O`ahu/Saint Louis School","image":"Stutzmann_Billy_Ray12_6702.jpg"}
-,{"number":6,"position":"LB","year":"Sr","height":"6-2","weight":220,"name":"Darryl McBride Jr.","hometown":"1L Philadelphia, PA/Mendocino College","image":"McBride_Darryl12_6796.jpg"}
-,{"number":7,"position":"RB","year":"So","height":"6-0","weight":240,"name":"Joey Iosefa","hometown":"1L Pago Pago, American Samoa/Fagaitua HS","image":"Iosefa_Joey12_6805.jpg"}
-,{"number":8,"position":"QB","year":"So","height":"6-5","weight":235,"name":"Taylor Graham","hometown":"TR Wheaton, IL/Ohio State","image":"Graham_Taylor12_6678.jpg"}
-,{"number":8,"position":"DB","year":"So","height":"6-0","weight":180,"name":"Brian Clay","hometown":"1L Vacaville, CA/Will C. Wood HS","image":"Clay_Brian12_6705.jpg"}
-,{"number":9,"position":"DB","year":"So","height":"5-11","weight":175,"name":"Bubba Poueu-Luna","hometown":"1L Temecula, CA/Great Oak HS","image":"Poueu-Luna_Bubba12_6950.jpg"}
-,{"number":10,"position":"DB","year":"Sr","height":"5-9","weight":175,"name":"Kawika Ornellas","hometown":"3L Kapolei, O`ahu/Mililani HS","image":"Ornellas_Kawika12_6920.jpg"}
-,{"number":11,"position":"QB","year":"Fr","height":"6-1","weight":215,"name":"Ikaika Woolsey","hometown":"HS Rodeo, CA/Salesian HS","image":"Woolsey_Ikaika12_6785.jpg"}
-,{"number":12,"position":"QB","year":"So","height":"6-1","weight":200,"name":"Jeremy Higgins","hometown":"RS Honolulu, O`ahu/Utah State","image":"Higgins_Jeremy12_6739.jpg"}
-,{"number":13,"position":"WR","year":"Jr","height":"6-2","weight":195,"name":"Justin Clapp","hometown":"2L Concord, CA/De La Salle HS","image":"Clapp_Justin12_6745.jpg"}
-,{"number":14,"position":"QB/WR","year":"Jr","height":"6-0","weight":195,"name":"David Graves","hometown":"2L Folsom, CA/Folsom HS","image":"Graves_David12_6898.jpg"}
-,{"number":15,"position":"QB","year":"Jr","height":"6-1","weight":185,"name":"Cayman Shutter","hometown":"2L Kailua, O`ahu/Punahou School","image":"Shutter_Cayman12_7901.jpg"}
-,{"number":16,"position":"WR","year":"Fr","height":"6-1","weight":195,"name":"Justin Alo","hometown":"HS Carson, CA/Carson HS","image":"Alo_Justin12_7894.jpg"}
-,{"number":17,"position":"DB","year":"Fr","height":"5-8","weight":170,"name":"Ijumaa Armstrong","hometown":"RS Los Angeles, CA/Culver City HS","image":"Armstrong_Ijumaa12_6958.jpg"}
-,{"number":18,"position":"DB","year":"So","height":"5-11","weight":175,"name":"Mike Sellers","hometown":"1L `Ewa Beach, O`ahu/Campbell HS","image":"Sellers_Mike12_6935.jpg"}
-,{"number":19,"position":"QB","year":"Jr","height":"6-3","weight":200,"name":"Sean Schroeder","hometown":"TR Laguna Niguel, CA/Duke","image":"Schroeder_Sean12_7916.jpg"}
-,{"number":20,"position":"DB","year":"Fr","height":"5-9","weight":180,"name":"Ne'Quan Phillips","hometown":"HS Miami, FL/Southridge HS","image":"Philips_Ne'Quan12_7882.jpg"}
-,{"number":21,"position":"RB","year":"Fr","height":"5-7","weight":160,"name":"Samson Anguay","hometown":"RS `Ewa Beach, O`ahu/Campbell HS","image":"Anguay_Samson12_6748.jpg"}
-,{"number":22,"position":"DB","year":"Sr","height":"6-2","weight":210,"name":"Leroy Lutu","hometown":"1L Mercer Island, WA/Mercer Island HS","image":"Lutu_Leroy12_6914.jpg"}
-,{"number":23,"position":"DB","year":"So","height":"5-8","weight":170,"name":"Dee Maggitt","hometown":"1L Tacoma, WA/Lakes HS","image":"Maggitt_Dee12_7919.jpg"}
-,{"number":24,"position":"WR","year":"Fr","height":"6-0","weight":205,"name":"Duke Bukoski","hometown":"TR Honolulu, O`ahu/Idaho State","image":"Bukoski_Duke12_6872.jpg"}
-,{"number":25,"position":"DB","year":"Fr","height":"6-0","weight":180,"name":"Marrell Jackson","hometown":"HS Miramar, FL/Miramar HS","image":"Jackson_Marrell12_7872.jpg"}
-,{"number":26,"position":"RB","year":"Fr","height":"5-10","weight":215,"name":"Steven Lakalaka","hometown":"HS Honolulu, O`ahu/Punahou School","image":"Lakalaka_Steven12_7864.jpg"}
-,{"number":27,"position":"PK","year":"So","height":"5-11","weight":180,"name":"Tyler Hadden","hometown":"1L Whittier, CA/California HS","image":"Hadden_Tyler12_6835.jpg"}
-,{"number":28,"position":"RB","year":"Sr","height":"6-0","weight":220,"name":"Sterling Jackson","hometown":"1L Stone Mountain, GA/Mendocino College","image":"Jackson_Sterling12_6859.jpg"}
-,{"number":29,"position":"WR","year":"So","height":"5-11","weight":195,"name":"Scott Harding","hometown":"1L  Brisbane, Queensland, Australia/Anglican Church Grammar School","image":"Harding_Scott12_6902.jpg"}
-,{"number":30,"position":"DB","year":"Fr","height":"6-0","weight":190,"name":"Ryan Pasoquen","hometown":"RS Wahiawa, O`ahu/Leilehua HS ","image":"Pasoquen_Ryan12_6711.jpg"}
-,{"number":31,"position":"P","year":"Sr","height":"6-4","weight":220,"name":"Alex Dunnachie","hometown":"3L Heidelberg, Victoria, Australia/Marcellin College","image":"Dunnachie_Alex12_6865.jpg"}
-,{"number":33,"position":"DB","year":"Jr","height":"5-11","weight":180,"name":"John Hardy-Tuliau","hometown":"2L Temecula, CA/Vista Murrieta HS","image":"Hardy-Tuilau_John12_6832.jpg"}
-,{"number":34,"position":"RB","year":"So","height":"6-0","weight":210,"name":"John Lister","hometown":"1L Thousand Oaks, CA/Thousand Oaks HS","image":"Lister_John12_6741.jpg"}
-,{"number":35,"position":"RB","year":"Fr","height":"6-1","weight":230,"name":"Jared Leaf","hometown":"RS Martinez, CA/Alhambra HS","image":"Leaf_Jared12_7835.jpg"}
-,{"number":35,"position":"DB","year":"Fr","height":"6-0","weight":200,"name":"Joshua Donovan","hometown":"HS Honolulu, O`ahu/Mid-Pacific Institute","image":"Donovan_Josh12_2410.jpg"}
-,{"number":36,"position":"LB","year":"Fr","height":"6-1","weight":220,"name":"Benetton Fonua","hometown":"HS Kahuku, O`ahu/Kahuku HS","image":"Fonua_Benetton12_7880.jpg"}
-,{"number":37,"position":"DB","year":"Jr","height":"5-11","weight":190,"name":"Charles Clay","hometown":"1L Hilo, Hawai`i/SMU","image":"Clay_Charles12_6818.jpg"}
-,{"number":39,"position":"FB","year":"Fr","height":"6-3","weight":260,"name":"Ethan Watanabe","hometown":"HS San Antonio, TX/Brennan HS","image":"Watanabe_Ethan12_7848.jpg"}
-,{"number":39,"position":"PK","year":"Sr","height":"5-11","weight":225,"name":"Kyle Niiro","hometown":"1L Honolulu, O`ahu/Kaiser HS","image":"Niiro_Kyle12_6823.jpg"}
-,{"number":40,"position":"LB","year":"Fr","height":"6-3","weight":205,"name":"Jerrol Garcia-Williams","hometown":"HS Las Vegas, NV/Palo Verde HS","image":"Garcia-Williams_Jerrol12_7887.jpg"}
-,{"number":41,"position":"LB","year":"Jr","height":"6-0","weight":235,"name":"Art Laurel","hometown":"2L Wahiawa, O`ahu/Leilehua HS ","image":"Laurel_Art12_6760.jpg"}
-,{"number":42,"position":"DL","year":"Sr","height":"6-3","weight":245,"name":"Paipai Falemalu","hometown":"3L Hau`ula, O`ahu/Kahuku HS ","image":"Falemalu_Paipai12_6857.jpg"}
-,{"number":43,"position":"LB","year":"Fr","height":"5-10","weight":220,"name":"Jonathan Makaiau","hometown":"HS Mililani, O`ahu/Mililani HS","image":"Makaiau_Jonathan12_9130.jpg"}
-,{"number":44,"position":"FB","year":"So","height":"6-0","weight":270,"name":"Dustin Elisara","hometown":"SQ Kapolei, O`ahu/Kapolei HS","image":"Elisara_Dustin12_7597.jpg"}
-,{"number":44,"position":"LB","year":"Jr","height":"6-2","weight":215,"name":"Alema Tachibana","hometown":"SQ Kahuku, O`ahu/Kahuku HS","image":"Tachibana_Alema12_7943.jpg"}
-,{"number":45,"position":"LS","year":"Sr","height":"6-6","weight":235,"name":"Luke Ingram","hometown":"3L Mililani, O`ahu/Mililani HS","image":"Ingram_Luke12_6938.jpg"}
-,{"number":46,"position":"LB","year":"Sr","height":"6-2","weight":235,"name":"Dylan McCagg","hometown":"RS Denver, CO/San Diego Mesa College","image":"McCagg_Dylan12_6932.jpg"}
-,{"number":47,"position":"LB","year":"Jr","height":"6-2","weight":215,"name":"Kamalani Alo","hometown":"2L Hau`ula, O`ahu/Kahuku HS","image":"Alo_Kama12_6732.jpg"}
-,{"number":48,"position":"FB","year":"Fr","height":"6-0","weight":240,"name":"Justin Vele","hometown":"RS Honolulu, O`ahu/Farrington HS","image":"Vele_Justin12_6880.jpg"}
-,{"number":48,"position":"DB","year":"Jr","height":"6-0","weight":190,"name":"Michael Martin","hometown":"JC Honolulu, O`ahu/St. Louis School","image":"Martin_Mike12_9126.jpg"}
-,{"number":49,"position":"WR","year":"So","height":"5-7","weight":155,"name":"Donnie King, Jr.","hometown":"SQ Kapolei, O`ahu/Kapolei HS","image":"King_Donnie12_6874.jpg"}
-,{"number":49,"position":"LB","year":"Sr","height":"5-10","weight":205,"name":"Rykin Enos","hometown":"1L `Aiea, O`ahu/Kamehameha Schools-Kapalama","image":"Enos_Rykin12_6894.jpg"}
-,{"number":50,"position":"DL","year":"Fr","height":"6-2","weight":305,"name":"Calen Friel","hometown":"RS Kane`ohe, O`ahu/Kailua HS","image":"Friel_Calen12_6808.jpg"}
-,{"number":51,"position":"LB","year":"Fr","height":"6-2","weight":220,"name":"Lance Williams","hometown":"HS Honolulu, O`ahu/Farrington HS","image":"Williams_Lance12_6758.jpg"}
-,{"number":52,"position":"LB","year":"Fr","height":"5-11","weight":200,"name":"Kendrick Van Ackeren","hometown":"RS Bellevue, WA/Bellevue HS","image":"Van_Ackeren_Kendrick12_6889.jpg"}
-,{"number":53,"position":"DL","year":"So","height":"6-1","weight":260,"name":"Marcus Malepeai","hometown":"1L Honolulu, O`ahu/Radford HS","image":"Malepeai_Marcus12_6803.jpg"}
-,{"number":54,"position":"OL","year":"So","height":"6-2","weight":305,"name":"Kody Afusia","hometown":"1L Midway City, CA/Ocean View HS","image":"Afusia_Kody12_6767.jpg"}
-,{"number":55,"position":"LB","year":"Jr","height":"5-11","weight":230,"name":"George Daily-Lyles","hometown":"2L Long Beach, CA/Long Beach Poly HS","image":"Daily-Lyles_George12_6774.jpg"}
-,{"number":56,"position":"LB","year":"Jr","height":"6-3","weight":255,"name":"Brenden Daley","hometown":"RS Moorpark, CA/Ventura JC","image":"Daley_Brenden12_6941.jpg"}
-,{"number":57,"position":"OL","year":"Jr","height":"6-4","weight":315,"name":"Kapua Sai","hometown":"TR Kane`ohe, O`ahu/Utah","image":"Sai_Kapua12_7839.jpg"}
-,{"number":58,"position":"OL","year":"So","height":"6-5","weight":315,"name":"Jordan Loeffler","hometown":"1L Hilo, Hawai`i/Hilo HS","image":"Loeffler_Jordan12_6886.jpg"}
-,{"number":59,"position":"DL","year":"Jr","height":"6-2","weight":285,"name":"Siasau Matagiese","hometown":"1L Waimea, Kaua`i/Portland State","image":"Matagiese_Siasau12_6781.jpg"}
-,{"number":60,"position":"LB","year":"Fr","height":"5-10","weight":225,"name":"Giovanni Stevenson","hometown":"HS `Ewa Beach, O`ahu/Campbell HS","image":"Stevenson_Giovanni12_9104.jpg"}
-,{"number":61,"position":"LS","year":"So","height":"6-1","weight":170,"name":"Brian Hittner","hometown":"JC Anaheim Hills, CA/Saddleback JC","image":"Hittner_Brian12_9109.jpg"}
-,{"number":62,"position":"OL","year":"Jr","height":"6-4","weight":325,"name":"Chauncy Winchester-Makainai","hometown":"2L Kailua, O`ahu/Kailua HS","image":"Makainai_C12_7828.jpg"}
-,{"number":63,"position":"OL","year":"Fr","height":"6-3","weight":305,"name":"Ben Dew","hometown":"RS Auckland, New Zealand/Word of Life","image":"Dew_Ben12_6714.jpg"}
-,{"number":66,"position":"OL","year":"Fr","height":"6-5","weight":290,"name":"Blake Muir","hometown":"RS Sutherland, NSW, Australia/Kirrawee HS","image":"Muir_Blake12_6735.jpg"}
-,{"number":67,"position":"OL","year":"Jr","height":"6-1","weight":275,"name":"Hunter Hollowed","hometown":"RS Redlands, CA/Mt. San Jacinto JC ","image":"Hollowed_Hunter12_6911.jpg"}
-,{"number":68,"position":"OL","year":"So","height":"6-4","weight":305,"name":"Sean Shigematsu","hometown":"1L Kapa`a, Kaua`i/Kapa`a HS","image":"Shigematsu_Sean12_6838.jpg"}
-,{"number":69,"position":"OL","year":"So","height":"6-1","weight":300,"name":"Brenden Urban","hometown":"TR Littleton, CO/Adams State","image":"UHWarriors1.png"}
-,{"number":70,"position":"OL","year":"So","height":"6-3","weight":300,"name":"Frank Loyd Jr.","hometown":"1L `Aiea, O`ahu/Moanalua HS","image":"Loyd_Frank12_7899.jpg"}
-,{"number":71,"position":"OL","year":"Fr","height":"6-3","weight":275,"name":"Ben Clarke","hometown":"HS Littleton, CO/Chatfield HS","image":"Clark_Ben12_7818.jpg"}
-,{"number":74,"position":"DL","year":"Fr","height":"6-2","weight":250,"name":"Hunter Thomson","hometown":"HS Waialua, O`ahu/Waialua HS","image":"Thomson_Hunter12_9117.jpg"}
-,{"number":75,"position":"OL","year":"Fr","height":"6-3","weight":315,"name":"Kiha Sai","hometown":"HS Kane`ohe, O`ahu/ Kamehameha Schools-Kapalama","image":"Sai_Kiha12_7855.jpg"}
-,{"number":76,"position":"OL","year":"So","height":"6-3","weight":305,"name":"Dave Lefotu","hometown":"1L Pearl City, O`ahu/Pearl City HS","image":"Lefotu_David12_6868.jpg"}
-,{"number":77,"position":"OL","year":"Jr","height":"6-3","weight":310,"name":"Michael Milovale","hometown":"JC Seaside, CA/Hartnell College","image":"Milovale_Mike12_8945.jpg"}
-,{"number":78,"position":"OL","year":"Fr","height":"6-5","weight":260,"name":"Leo Koloamatangi","hometown":"HS East Palo Alto, CA/Sacred Heart Prep","image":"Koloamatangi_Leo12_7891.jpg"}
-,{"number":79,"position":"DL","year":"So","height":"6-1","weight":250,"name":"Dale Haretuku","hometown":"HS Pago Pago, American Samoa/Tafuna HS","image":"Haretuku_Dale12_9098.jpg"}
-,{"number":80,"position":"WR","year":"Sr","height":"5-9","weight":175,"name":"Jeremiah Ostrowski","hometown":"3L `Aiea, O`ahu/Punahou School","image":"Ostrowski_Jeremiah12_6926.jpg"}
-,{"number":81,"position":"WR","year":"Jr","height":"6-0","weight":180,"name":"Chris Gant","hometown":"RS Long Beach, CA/Moorpark College","image":"Gant_Chris12_6699.jpg"}
-,{"number":82,"position":"TE","year":"Sr","height":"6-4","weight":230,"name":"Darius Bright","hometown":"1L Fayetteville, NC/City College of San Francisco","image":"Bright_Darius12_6846.jpg"}
-,{"number":83,"position":"WR","year":"Jr","height":"6-4","weight":205,"name":"Cecil Doe","hometown":"RS Maple Grove, MN/N.D. State College of Science","image":"Doe_Cecil12_6769.jpg"}
-,{"number":84,"position":"WR","year":"Fr","height":"5-9","weight":185,"name":"Chinedu Amadi","hometown":"RS Ontario, CA/Chino HS","image":"Amadi_Chinedu12_6693.jpg"}
-,{"number":85,"position":"DL","year":"Jr","height":"6-4","weight":260,"name":"Jordan Pu`u-Robinson","hometown":"TR Wailuku, Maui/Washington State","image":"Puu-Robinson_Jordan12_7940.jpg"}
-,{"number":86,"position":"TE","year":"Jr","height":"6-5","weight":250,"name":"Craig Cofer","hometown":"1L Livermore, CA/Grossmont College","image":"Cofer_Craig12_6826.jpg"}
-,{"number":87,"position":"TE","year":"Jr","height":"6-4","weight":240,"name":"Ryan Hall","hometown":"TR Orlando, FL/Duke","image":"Hall_Ryan12_9093.jpg"}
-,{"number":88,"position":"WR","year":"Jr","height":"5-7","weight":170,"name":"Corey Paclebar","hometown":"2L  Pleasant Hill, CA/Las Lomas HS","image":"Paclebar_Corey12_7911.jpg"}
-,{"number":89,"position":"WR","year":"So","height":"6-1","weight":170,"name":"Trevor Davis","hometown":"1L Martinez, CA/Alhambra HS","image":"Davis_Trevor12_6688.jpg"}
-,{"number":90,"position":"DL","year":"Sr","height":"6-1","weight":300,"name":"Geordon Hanohano","hometown":"3L Wai`anae, O`ahu/Saint Louis School","image":"Hanohano_Geordon12_6764.jpg"}
-,{"number":91,"position":"DL","year":"So","height":"6-1","weight":295,"name":"Moses Samia","hometown":"1L `Ewa Beach, O`ahu/Saint Louis School","image":"Samia_Moses12_6800.jpg"}
-,{"number":92,"position":"DL","year":"So","height":"6-1","weight":260,"name":"Beau Yap","hometown":"1L  Pearl City, O`ahu/Kamehameha Schools-Kapalama","image":"Yap_Beau12_6812.jpg"}
-,{"number":93,"position":"DL","year":"So","height":"6-5","weight":220,"name":"Desmond Dean","hometown":"1L Tyler, TX/John Tyler HS","image":"Dean_Desmond12_6883.jpg"}
-,{"number":94,"position":"TE","year":"Jr","height":"6-4","weight":245,"name":"Clark Evans","hometown":"JC Tustin, CA/Cerritos College","image":"Evans_Clark12_6726.jpg"}
-,{"number":94,"position":"DL","year":"Sr","height":"6-2","weight":245,"name":"Siaki Cravens","hometown":"2L Temecula, CA/Long Beach CC","image":"UHWarriors1.png"}
-,{"number":95,"position":"WR","year":"Jr","height":"5-10","weight":200,"name":"Blakelyn Birks","hometown":"JC Vacaville, CA/Santa Rosa JC","image":"Birks_Blakelyn12_9135.jpg"}
-,{"number":95,"position":"DL","year":"Fr","height":"6-2","weight":275,"name":"Mike Andrade","hometown":"HS Kealakekua, Hawai`i/Konawaena HS","image":"Andrade_Mike12_7860.jpg"}
-,{"number":96,"position":"WR","year":"Fr","height":"5-10","weight":175,"name":"Elijah Langley","hometown":"HS Maryville, TN/Maryville HS","image":"Langley_Elijah12_9114.jpg"}
-,{"number":96,"position":"DL","year":"Jr","height":"6-2","weight":245,"name":"Ho`oikaika Cavaco-Amoy","hometown":"SQ Waimanalo, O`ahu/Saint Louis School","image":"Cavaco-Amoy_Hooikaika12_6708.jpg"}
-,{"number":97,"position":"DL","year":"Jr","height":"6-4","weight":260,"name":"Tavita Woodard","hometown":"1L Honolulu, O`ahu/Eastern Arizona College","image":"Woodard_Tavita12_6854.jpg"}
-,{"number":98,"position":"TE","year":"Fr","height":"6-2","weight":255,"name":"Harold Moleni","hometown":"HS West Valley City, UT/Hunter HS","image":"Moleni_Harold12_7852.jpg"}
-,{"number":99,"position":"DL","year":"Sr","height":"6-2","weight":305,"name":"Haku Correa","hometown":"3L Honolulu, O`ahu/Damien Memorial School","image":"Correa_Haku12_6815.jpg"}
+{"date":"20121006","opponent":"San Diego State","players":[
+{"number":1,"position":"DB","year":"Jr","height":"5-10","weight":180,"name":"Mike Edwards","hometown":"1L Cleveland, OH/Coffeyville CC","firstname":"Mike","lastname":"Edwards","image":"Edwards_Mike12_7844.jpg"}
+,{"number":2,"position":"WR","year":"Jr","height":"5-7","weight":145,"name":"Allen Sampson","hometown":"2L Tampa, FL/Plant HS","firstname":"Allen","lastname":"Sampson","image":"Sampson_Allen12_6829.jpg"}
+,{"number":2,"position":"DB","year":"Jr","height":"6-0","weight":175,"name":"Tony Grimes","hometown":"JC Davie, FL/Arizona Western College","firstname":"Tony","lastname":"Grimes","image":"Grimes_Tony12_7961.jpg"}
+,{"number":3,"position":"LB","year":"So","height":"6-3","weight":235,"name":"TJ Taimatuia","hometown":"1L Fagasa, American Samoa/Artesia HS","firstname":"TJ","lastname":"Taimatuia","image":"Taimatuia_TJ12_6929.jpg"}
+,{"number":4,"position":"RB","year":"Fr","height":"6-0","weight":190,"name":"Will Gregory","hometown":"RS Compton, CA/Dominguez HS","firstname":"Will","lastname":"Gregory","image":"Gregory_Will12_6841.jpg"}
+,{"number":5,"position":"WR","year":"Jr","height":"6-0","weight":190,"name":"Billy Ray Stutzmann","hometown":"2L Honolulu, O`ahu/Saint Louis School","firstname":"Billy Ray","lastname":"Stutzmann","image":"Stutzmann_Billy_Ray12_6702.jpg"}
+,{"number":6,"position":"LB","year":"Sr","height":"6-2","weight":220,"name":"Darryl McBride Jr.","hometown":"1L Philadelphia, PA/Mendocino College","firstname":"Darryl","lastname":"McBride Jr","image":"McBride_Darryl12_6796.jpg"}
+,{"number":7,"position":"RB","year":"So","height":"6-0","weight":240,"name":"Joey Iosefa","hometown":"1L Pago Pago, American Samoa/Fagaitua HS","firstname":"Joey","lastname":"Iosefa","image":"Iosefa_Joey12_6805.jpg"}
+,{"number":8,"position":"QB","year":"So","height":"6-5","weight":235,"name":"Taylor Graham","hometown":"TR Wheaton, IL/Ohio State","firstname":"Taylor","lastname":"Graham","image":"Graham_Taylor12_6678.jpg"}
+,{"number":8,"position":"DB","year":"So","height":"6-0","weight":180,"name":"Brian Clay","hometown":"1L Vacaville, CA/Will C. Wood HS","firstname":"Brian","lastname":"Clay","image":"Clay_Brian12_6705.jpg"}
+,{"number":9,"position":"DB","year":"So","height":"5-11","weight":175,"name":"Bubba Poueu-Luna","hometown":"1L Temecula, CA/Great Oak HS","firstname":"Bubba","lastname":"Poueu-Luna","image":"Poueu-Luna_Bubba12_6950.jpg"}
+,{"number":10,"position":"DB","year":"Sr","height":"5-9","weight":175,"name":"Kawika Ornellas","hometown":"3L Kapolei, O`ahu/Mililani HS","firstname":"Kawika","lastname":"Ornellas","image":"Ornellas_Kawika12_6920.jpg"}
+,{"number":11,"position":"QB","year":"Fr","height":"6-1","weight":215,"name":"Ikaika Woolsey","hometown":"HS Rodeo, CA/Salesian HS","firstname":"Ikaika","lastname":"Woolsey","image":"Woolsey_Ikaika12_6785.jpg"}
+,{"number":12,"position":"QB","year":"So","height":"6-1","weight":200,"name":"Jeremy Higgins","hometown":"RS Honolulu, O`ahu/Utah State","firstname":"Jeremy","lastname":"Higgins","image":"Higgins_Jeremy12_6739.jpg"}
+,{"number":13,"position":"WR","year":"Jr","height":"6-2","weight":195,"name":"Justin Clapp","hometown":"2L Concord, CA/De La Salle HS","firstname":"Justin","lastname":"Clapp","image":"Clapp_Justin12_6745.jpg"}
+,{"number":14,"position":"QB/WR","year":"Jr","height":"6-0","weight":195,"name":"David Graves","hometown":"2L Folsom, CA/Folsom HS","firstname":"David","lastname":"Graves","image":"Graves_David12_6898.jpg"}
+,{"number":15,"position":"QB","year":"Jr","height":"6-1","weight":185,"name":"Cayman Shutter","hometown":"2L Kailua, O`ahu/Punahou School","firstname":"Cayman","lastname":"Shutter","image":"Shutter_Cayman12_7901.jpg"}
+,{"number":16,"position":"WR","year":"Fr","height":"6-1","weight":195,"name":"Justin Alo","hometown":"HS Carson, CA/Carson HS","firstname":"Justin","lastname":"Alo","image":"Alo_Justin12_7894.jpg"}
+,{"number":17,"position":"DB","year":"Fr","height":"5-8","weight":170,"name":"Ijumaa Armstrong","hometown":"RS Los Angeles, CA/Culver City HS","firstname":"Ijumaa","lastname":"Armstrong","image":"Armstrong_Ijumaa12_6958.jpg"}
+,{"number":18,"position":"DB","year":"So","height":"5-11","weight":175,"name":"Mike Sellers","hometown":"1L `Ewa Beach, O`ahu/Campbell HS","firstname":"Mike","lastname":"Sellers","image":"Sellers_Mike12_6935.jpg"}
+,{"number":19,"position":"QB","year":"Jr","height":"6-3","weight":200,"name":"Sean Schroeder","hometown":"TR Laguna Niguel, CA/Duke","firstname":"Sean","lastname":"Schroeder","image":"Schroeder_Sean12_7916.jpg"}
+,{"number":20,"position":"DB","year":"Fr","height":"5-9","weight":180,"name":"Ne'Quan Phillips","hometown":"HS Miami, FL/Southridge HS","firstname":"Ne'Quan","lastname":"Phillips","image":"Philips_Ne'Quan12_7882.jpg"}
+,{"number":21,"position":"RB","year":"Fr","height":"5-7","weight":160,"name":"Samson Anguay","hometown":"RS `Ewa Beach, O`ahu/Campbell HS","firstname":"Samson","lastname":"Anguay","image":"Anguay_Samson12_6748.jpg"}
+,{"number":22,"position":"DB","year":"Sr","height":"6-2","weight":210,"name":"Leroy Lutu","hometown":"1L Mercer Island, WA/Mercer Island HS","firstname":"Leroy","lastname":"Lutu","image":"Lutu_Leroy12_6914.jpg"}
+,{"number":23,"position":"DB","year":"So","height":"5-8","weight":170,"name":"Dee Maggitt","hometown":"1L Tacoma, WA/Lakes HS","firstname":"Dee","lastname":"Maggitt","image":"Maggitt_Dee12_7919.jpg"}
+,{"number":24,"position":"WR","year":"Fr","height":"6-0","weight":205,"name":"Duke Bukoski","hometown":"TR Honolulu, O`ahu/Idaho State","firstname":"Duke","lastname":"Bukoski","image":"Bukoski_Duke12_6872.jpg"}
+,{"number":25,"position":"DB","year":"Fr","height":"6-0","weight":180,"name":"Marrell Jackson","hometown":"HS Miramar, FL/Miramar HS","firstname":"Marrell","lastname":"Jackson","image":"Jackson_Marrell12_7872.jpg"}
+,{"number":26,"position":"RB","year":"Fr","height":"5-10","weight":215,"name":"Steven Lakalaka","hometown":"HS Honolulu, O`ahu/Punahou School","firstname":"Steven","lastname":"Lakalaka","image":"Lakalaka_Steven12_7864.jpg"}
+,{"number":27,"position":"PK","year":"So","height":"5-11","weight":180,"name":"Tyler Hadden","hometown":"1L Whittier, CA/California HS","firstname":"Tyler","lastname":"Hadden","image":"Hadden_Tyler12_6835.jpg"}
+,{"number":28,"position":"RB","year":"Sr","height":"6-0","weight":220,"name":"Sterling Jackson","hometown":"1L Stone Mountain, GA/Mendocino College","firstname":"Sterling","lastname":"Jackson","image":"Jackson_Sterling12_6859.jpg"}
+,{"number":29,"position":"WR","year":"So","height":"5-11","weight":195,"name":"Scott Harding","hometown":"1L Brisbane, Queensland, Australia/Anglican Church Grammar School","firstname":"Scott","lastname":"Harding","image":"Harding_Scott12_6902.jpg"}
+,{"number":30,"position":"DB","year":"Fr","height":"6-0","weight":190,"name":"Ryan Pasoquen","hometown":"RS Wahiawa, O`ahu/Leilehua HS","firstname":"Ryan","lastname":"Pasoquen","image":"Pasoquen_Ryan12_6711.jpg"}
+,{"number":30,"position":"DB","year":"Fr","height":"6-0","weight":200,"name":"Joshua Donovan","hometown":"HS Honolulu, O`ahu/Mid-Pacific Institute","firstname":"Joshua","lastname":"Donovan","image":"Donovan_Josh12_2410.jpg"}
+,{"number":31,"position":"P","year":"Sr","height":"6-4","weight":220,"name":"Alex Dunnachie","hometown":"3L Heidelberg, Victoria, Australia/Marcellin College","firstname":"Alex","lastname":"Dunnachie","image":"Dunnachie_Alex12_6865.jpg"}
+,{"number":33,"position":"DB","year":"Jr","height":"5-11","weight":180,"name":"John Hardy-Tuliau","hometown":"2L Temecula, CA/Vista Murrieta HS","firstname":"John","lastname":"Hardy-Tuliau","image":"Hardy-Tuilau_John12_6832.jpg"}
+,{"number":34,"position":"RB","year":"So","height":"6-0","weight":210,"name":"John Lister","hometown":"1L Thousand Oaks, CA/Thousand Oaks HS","firstname":"John","lastname":"Lister","image":"Lister_John12_6741.jpg"}
+,{"number":35,"position":"RB","year":"Fr","height":"6-1","weight":230,"name":"Jared Leaf","hometown":"RS Martinez, CA/Alhambra HS","firstname":"Jared","lastname":"Leaf","image":"Leaf_Jared12_7835.jpg"}
+,{"number":36,"position":"LB","year":"Fr","height":"6-1","weight":220,"name":"Benetton Fonua","hometown":"HS Kahuku, O`ahu/Kahuku HS","firstname":"Benetton","lastname":"Fonua","image":"Fonua_Benetton12_7880.jpg"}
+,{"number":37,"position":"DB","year":"Jr","height":"5-11","weight":190,"name":"Charles Clay","hometown":"1L Hilo, Hawai`i/SMU","firstname":"Charles","lastname":"Clay","image":"Clay_Charles12_6818.jpg"}
+,{"number":38,"position":"DB","year":"Fr","height":"6-1","weight":180,"name":"Dante Johnson","hometown":"RS Suwanee, GA / North Gwinett HS","firstname":"Dante","lastname":"Johnson","image":"Johnson_Dante12_6723.jpg"}
+,{"number":39,"position":"FB","year":"Fr","height":"6-3","weight":260,"name":"Ethan Watanabe","hometown":"HS San Antonio, TX/Brennan HS","firstname":"Ethan","lastname":"Watanabe","image":"Watanabe_Ethan12_7848.jpg"}
+,{"number":39,"position":"PK","year":"Sr","height":"5-11","weight":225,"name":"Kyle Niiro","hometown":"1L Honolulu, O`ahu/Kaiser HS","firstname":"Kyle","lastname":"Niiro","image":"Niiro_Kyle12_6823.jpg"}
+,{"number":40,"position":"LB","year":"Fr","height":"6-3","weight":205,"name":"Jerrol Garcia-Williams","hometown":"HS Las Vegas, NV/Palo Verde HS","firstname":"Jerrol","lastname":"Garcia-Williams","image":"Garcia-Williams_Jerrol12_7887.jpg"}
+,{"number":41,"position":"LB","year":"Jr","height":"6-0","weight":235,"name":"Art Laurel","hometown":"2L Wahiawa, O`ahu/Leilehua HS","firstname":"Art","lastname":"Laurel","image":"Laurel_Art12_6760.jpg"}
+,{"number":42,"position":"DL","year":"Sr","height":"6-3","weight":245,"name":"Paipai Falemalu","hometown":"3L Hau`ula, O`ahu/Kahuku HS","firstname":"Paipai","lastname":"Falemalu","image":"Falemalu_Paipai12_6857.jpg"}
+,{"number":43,"position":"LB","year":"Fr","height":"5-10","weight":220,"name":"Jonathan Makaiau","hometown":"HS Mililani, O`ahu/Mililani HS","firstname":"Jonathan","lastname":"Makaiau","image":"Makaiau_Jonathan12_9130.jpg"}
+,{"number":44,"position":"FB","year":"So","height":"6-0","weight":270,"name":"Dustin Elisara","hometown":"SQ Kapolei, O`ahu/Kapolei HS","firstname":"Dustin","lastname":"Elisara","image":"Elisara_Dustin12_7597.jpg"}
+,{"number":44,"position":"LB","year":"Jr","height":"6-2","weight":215,"name":"Alema Tachibana","hometown":"SQ Kahuku, O`ahu/Kahuku HS","firstname":"Alema","lastname":"Tachibana","image":"Tachibana_Alema12_7943.jpg"}
+,{"number":45,"position":"LS","year":"Sr","height":"6-6","weight":235,"name":"Luke Ingram","hometown":"3L Mililani, O`ahu/Mililani HS","firstname":"Luke","lastname":"Ingram","image":"Ingram_Luke12_6938.jpg"}
+,{"number":46,"position":"LB","year":"Sr","height":"6-2","weight":235,"name":"Dylan McCagg","hometown":"RS Denver, CO/San Diego Mesa College","firstname":"Dylan","lastname":"McCagg","image":"McCagg_Dylan12_6932.jpg"}
+,{"number":47,"position":"LB","year":"Jr","height":"6-2","weight":215,"name":"Kamalani Alo","hometown":"2L Hau`ula, O`ahu/Kahuku HS","firstname":"Kamalani","lastname":"Alo","image":"Alo_Kama12_6732.jpg"}
+,{"number":48,"position":"FB","year":"Fr","height":"6-0","weight":240,"name":"Justin Vele","hometown":"RS Honolulu, O`ahu/Farrington HS","firstname":"Justin","lastname":"Vele","image":"Vele_Justin12_6880.jpg"}
+,{"number":48,"position":"DB","year":"Jr","height":"6-0","weight":190,"name":"Michael Martin","hometown":"JC Honolulu, O`ahu/St. Louis School","firstname":"Michael","lastname":"Martin","image":"Martin_Mike12_9126.jpg"}
+,{"number":49,"position":"WR","year":"So","height":"5-7","weight":155,"name":"Donnie King, Jr.","hometown":"SQ Kapolei, O`ahu/Kapolei HS","firstname":"Donnie","lastname":"King Jr","image":"King_Donnie12_6874.jpg"}
+,{"number":49,"position":"LB","year":"Sr","height":"5-10","weight":205,"name":"Rykin Enos","hometown":"1L `Aiea, O`ahu/Kamehameha Schools-Kapalama","firstname":"Rykin","lastname":"Enos","image":"Enos_Rykin12_6894.jpg"}
+,{"number":50,"position":"DL","year":"Fr","height":"6-2","weight":305,"name":"Calen Friel","hometown":"RS Kane`ohe, O`ahu/Kailua HS","firstname":"Calen","lastname":"Friel","image":"Friel_Calen12_6808.jpg"}
+,{"number":51,"position":"LB","year":"Fr","height":"6-2","weight":220,"name":"Lance Williams","hometown":"HS Honolulu, O`ahu/Farrington HS","firstname":"Lance","lastname":"Williams","image":"Williams_Lance12_6758.jpg"}
+,{"number":52,"position":"LB","year":"Fr","height":"5-11","weight":200,"name":"Kendrick Van Ackeren","hometown":"RS Bellevue, WA/Bellevue HS","firstname":"Kendrick","lastname":"Van Ackeren","image":"Van_Ackeren_Kendrick12_6889.jpg"}
+,{"number":53,"position":"DL","year":"So","height":"6-1","weight":260,"name":"Marcus Malepeai","hometown":"1L Honolulu, O`ahu/Radford HS","firstname":"Marcus","lastname":"Malepeai","image":"Malepeai_Marcus12_6803.jpg"}
+,{"number":54,"position":"OL","year":"So","height":"6-2","weight":305,"name":"Kody Afusia","hometown":"1L Midway City, CA/Ocean View HS","firstname":"Kody","lastname":"Afusia","image":"Afusia_Kody12_6767.jpg"}
+,{"number":55,"position":"LB","year":"Jr","height":"5-11","weight":230,"name":"George Daily-Lyles","hometown":"2L Long Beach, CA/Long Beach Poly HS","firstname":"George","lastname":"Daily-Lyles","image":"Daily-Lyles_George12_6774.jpg"}
+,{"number":56,"position":"LB","year":"Jr","height":"6-3","weight":255,"name":"Brenden Daley","hometown":"RS Moorpark, CA/Ventura JC","firstname":"Brenden","lastname":"Daley","image":"Daley_Brenden12_6941.jpg"}
+,{"number":57,"position":"OL","year":"Jr","height":"6-4","weight":315,"name":"Kapua Sai","hometown":"TR Kane`ohe, O`ahu/Utah","firstname":"Kapua","lastname":"Sai","image":"Sai_Kapua12_7839.jpg"}
+,{"number":58,"position":"OL","year":"So","height":"6-5","weight":315,"name":"Jordan Loeffler","hometown":"1L Hilo, Hawai`i/Hilo HS","firstname":"Jordan","lastname":"Loeffler","image":"Loeffler_Jordan12_6886.jpg"}
+,{"number":59,"position":"DL","year":"Jr","height":"6-2","weight":285,"name":"Siasau Matagiese","hometown":"1L Waimea, Kaua`i/Portland State","firstname":"Siasau","lastname":"Matagiese","image":"Matagiese_Siasau12_6781.jpg"}
+,{"number":60,"position":"LB","year":"Fr","height":"5-10","weight":225,"name":"Giovanni Stevenson","hometown":"HS `Ewa Beach, O`ahu/Campbell HS","firstname":"Giovanni","lastname":"Stevenson","image":"Stevenson_Giovanni12_9104.jpg"}
+,{"number":61,"position":"LS","year":"So","height":"6-1","weight":170,"name":"Brian Hittner","hometown":"JC Anaheim Hills, CA/Saddleback JC","firstname":"Brian","lastname":"Hittner","image":"Hittner_Brian12_9109.jpg"}
+,{"number":62,"position":"OL","year":"Jr","height":"6-4","weight":325,"name":"Chauncy Winchester-Makainai","hometown":"2L Kailua, O`ahu/Kailua HS","firstname":"Chauncy","lastname":"Winchester-Makainai","image":"Makainai_C12_7828.jpg"}
+,{"number":63,"position":"OL","year":"Fr","height":"6-3","weight":305,"name":"Ben Dew","hometown":"RS Auckland, New Zealand/Word of Life","firstname":"Ben","lastname":"Dew","image":"Dew_Ben12_6714.jpg"}
+,{"number":66,"position":"OL","year":"Fr","height":"6-5","weight":290,"name":"Blake Muir","hometown":"RS Sutherland, NSW, Australia/Kirrawee HS","firstname":"Blake","lastname":"Muir","image":"Muir_Blake12_6735.jpg"}
+,{"number":67,"position":"OL","year":"Jr","height":"6-1","weight":275,"name":"Hunter Hollowed","hometown":"RS Redlands, CA/Mt. San Jacinto JC","firstname":"Hunter","lastname":"Hollowed","image":"Hollowed_Hunter12_6911.jpg"}
+,{"number":68,"position":"OL","year":"So","height":"6-4","weight":305,"name":"Sean Shigematsu","hometown":"1L Kapa`a, Kaua`i/Kapa`a HS","firstname":"Sean","lastname":"Shigematsu","image":"Shigematsu_Sean12_6838.jpg"}
+,{"number":69,"position":"OL","year":"So","height":"6-1","weight":300,"name":"Brenden Urban","hometown":"TR Littleton, CO/Adams State","firstname":"Brenden","lastname":"Urban","image":"IMG_9088.JPG"}
+,{"number":70,"position":"OL","year":"So","height":"6-3","weight":300,"name":"Frank Loyd Jr.","hometown":"1L `Aiea, O`ahu/Moanalua HS","firstname":"Frank","lastname":"Loyd Jr","image":"Loyd_Frank12_7899.jpg"}
+,{"number":71,"position":"OL","year":"Fr","height":"6-3","weight":275,"name":"Ben Clarke","hometown":"HS Littleton, CO/Chatfield HS","firstname":"Ben","lastname":"Clarke","image":"Clark_Ben12_7818.jpg"}
+,{"number":74,"position":"DL","year":"Fr","height":"6-2","weight":250,"name":"Hunter Thomson","hometown":"HS Waialua, O`ahu/Waialua HS","firstname":"Hunter","lastname":"Thomson","image":"Thomson_Hunter12_9117.jpg"}
+,{"number":75,"position":"OL","year":"Fr","height":"6-3","weight":315,"name":"Kiha Sai","hometown":"HS Kane`ohe, O`ahu/ Kamehameha Schools-Kapalama","firstname":"Kiha","lastname":"Sai","image":"Sai_Kiha12_7855.jpg"}
+,{"number":76,"position":"OL","year":"So","height":"6-3","weight":305,"name":"Dave Lefotu","hometown":"1L Pearl City, O`ahu/Pearl City HS","firstname":"Dave","lastname":"Lefotu","image":"Lefotu_David12_6868.jpg"}
+,{"number":77,"position":"OL","year":"Jr","height":"6-3","weight":310,"name":"Michael Milovale","hometown":"JC Seaside, CA/Hartnell College","firstname":"Michael","lastname":"Milovale","image":"Milovale_Mike12_8945.jpg"}
+,{"number":78,"position":"OL","year":"Fr","height":"6-5","weight":260,"name":"Leo Koloamatangi","hometown":"HS East Palo Alto, CA/Sacred Heart Prep","firstname":"Leo","lastname":"Koloamatangi","image":"Koloamatangi_Leo12_7891.jpg"}
+,{"number":79,"position":"DL","year":"So","height":"6-1","weight":250,"name":"Dale Haretuku","hometown":"HS Pago Pago, American Samoa/Tafuna HS","firstname":"Dale","lastname":"Haretuku","image":"Haretuku_Dale12_9098.jpg"}
+,{"number":80,"position":"WR","year":"Sr","height":"5-9","weight":175,"name":"Jeremiah Ostrowski","hometown":"3L `Aiea, O`ahu/Punahou School","firstname":"Jeremiah","lastname":"Ostrowski","image":"Ostrowski_Jeremiah12_6926.jpg"}
+,{"number":81,"position":"WR","year":"Jr","height":"6-0","weight":180,"name":"Chris Gant","hometown":"RS Long Beach, CA/Moorpark College","firstname":"Chris","lastname":"Gant","image":"Gant_Chris12_6699.jpg"}
+,{"number":82,"position":"TE","year":"Sr","height":"6-4","weight":230,"name":"Darius Bright","hometown":"1L Fayetteville, NC/City College of San Francisco","firstname":"Darius","lastname":"Bright","image":"Bright_Darius12_6846.jpg"}
+,{"number":83,"position":"WR","year":"Jr","height":"6-4","weight":205,"name":"Cecil Doe","hometown":"RS Maple Grove, MN/N.D. State College of Science","firstname":"Cecil","lastname":"Doe","image":"Doe_Cecil12_6769.jpg"}
+,{"number":84,"position":"WR","year":"Fr","height":"5-9","weight":185,"name":"Chinedu Amadi","hometown":"RS Ontario, CA/Chino HS","firstname":"Chinedu","lastname":"Amadi","image":"Amadi_Chinedu12_6693.jpg"}
+,{"number":85,"position":"DL","year":"Jr","height":"6-4","weight":260,"name":"Jordan Pu`u-Robinson","hometown":"TR Wailuku, Maui/Washington State","firstname":"Jordan","lastname":"Puu-Robinson","image":"Puu-Robinson_Jordan12_7940.jpg"}
+,{"number":86,"position":"TE","year":"Jr","height":"6-5","weight":250,"name":"Craig Cofer","hometown":"1L Livermore, CA/Grossmont College","firstname":"Craig","lastname":"Cofer","image":"Cofer_Craig12_6826.jpg"}
+,{"number":87,"position":"TE","year":"Jr","height":"6-4","weight":240,"name":"Ryan Hall","hometown":"TR Orlando, FL/Duke","firstname":"Ryan","lastname":"Hall","image":"Hall_Ryan12_9093.jpg"}
+,{"number":88,"position":"WR","year":"Jr","height":"5-7","weight":170,"name":"Corey Paclebar","hometown":"2L Pleasant Hill, CA/Las Lomas HS","firstname":"Corey","lastname":"Paclebar","image":"Paclebar_Corey12_7911.jpg"}
+,{"number":89,"position":"WR","year":"So","height":"6-1","weight":170,"name":"Trevor Davis","hometown":"1L Martinez, CA/Alhambra HS","firstname":"Trevor","lastname":"Davis","image":"Davis_Trevor12_6688.jpg"}
+,{"number":90,"position":"DL","year":"Sr","height":"6-1","weight":300,"name":"Geordon Hanohano","hometown":"3L Wai`anae, O`ahu/Saint Louis School","firstname":"Geordon","lastname":"Hanohano","image":"Hanohano_Geordon12_6764.jpg"}
+,{"number":91,"position":"DL","year":"So","height":"6-1","weight":295,"name":"Moses Samia","hometown":"1L `Ewa Beach, O`ahu/Saint Louis School","firstname":"Moses","lastname":"Samia","image":"Samia_Moses12_6800.jpg"}
+,{"number":92,"position":"DL","year":"So","height":"6-1","weight":260,"name":"Beau Yap","hometown":"1L Pearl City, O`ahu/Kamehameha Schools-Kapalama","firstname":"Beau","lastname":"Yap","image":"Yap_Beau12_6812.jpg"}
+,{"number":93,"position":"DL","year":"So","height":"6-5","weight":220,"name":"Desmond Dean","hometown":"1L Tyler, TX/John Tyler HS","firstname":"Desmond","lastname":"Dean","image":"Dean_Desmond12_6883.jpg"}
+,{"number":94,"position":"TE","year":"Jr","height":"6-4","weight":245,"name":"Clark Evans","hometown":"JC Tustin, CA/Cerritos College","firstname":"Clark","lastname":"Evans","image":"Evans_Clark12_6726.jpg"}
+,{"number":94,"position":"DL","year":"Sr","height":"6-2","weight":245,"name":"Siaki Cravens","hometown":"2L Temecula, CA/Long Beach CC","firstname":"Siaki","lastname":"Cravens","image":"player_Cravens_Siaki11_9519.JPG"}
+,{"number":95,"position":"WR","year":"Jr","height":"5-10","weight":200,"name":"Blakelyn Birks","hometown":"JC Vacaville, CA/Santa Rosa JC","firstname":"Blakelyn","lastname":"Birks","image":"Birks_Blakelyn12_9135.jpg"}
+,{"number":95,"position":"DL","year":"Fr","height":"6-2","weight":275,"name":"Mike Andrade","hometown":"HS Kealakekua, Hawai`i/Konawaena HS","firstname":"Mike","lastname":"Andrade","image":"Andrade_Mike12_7860.jpg"}
+,{"number":96,"position":"WR","year":"Fr","height":"5-10","weight":175,"name":"Elijah Langley","hometown":"HS Maryville, TN/Maryville HS","firstname":"Elijah","lastname":"Langley","image":"Langley_Elijah12_9114.jpg"}
+,{"number":96,"position":"DL","year":"Jr","height":"6-2","weight":245,"name":"Ho`oikaika Cavaco-Amoy","hometown":"SQ Waimanalo, O`ahu/Saint Louis School","firstname":"Hooikaika","lastname":"Cavaco-Amoy","image":"Cavaco-Amoy_Hooikaika12_6708.jpg"}
+,{"number":97,"position":"DL","year":"Jr","height":"6-4","weight":260,"name":"Tavita Woodard","hometown":"1L Honolulu, O`ahu/Eastern Arizona College","firstname":"Tavita","lastname":"Woodard","image":"Woodard_Tavita12_6854.jpg"}
+,{"number":98,"position":"TE","year":"Fr","height":"6-2","weight":255,"name":"Harold Moleni","hometown":"HS West Valley City, UT/Hunter HS","firstname":"Harold","lastname":"Moleni","image":"Moleni_Harold12_7852.jpg"}
+,{"number":99,"position":"DL","year":"Sr","height":"6-2","weight":305,"name":"Haku Correa","hometown":"3L Honolulu, O`ahu/Damien Memorial School","firstname":"Haku","lastname":"Correa","image":"Correa_Haku12_6815.jpg"}
 ]}
