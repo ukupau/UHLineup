@@ -23,6 +23,7 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.hardware.Sensor;
@@ -53,7 +54,7 @@ public class UHLineupActivity extends Activity { // implements OnClickListener {
     /** Called when the activity is first created. */
 
     private static final int DIALOG_GRID = 1;
-    private static final int DIALOG_INFO = 2;
+    private static final int DIALOG_ABOUT = 2;
     private static final int DIALOG_NO_DATA = 3;
     private static final int DIALOG_BAD_DATA = 4;
     private static final int DIALOG_LIST = 5;
@@ -83,6 +84,8 @@ public class UHLineupActivity extends Activity { // implements OnClickListener {
     EditText searchText;
     ImageView imageView;
     BitmapFactory.Options options;
+    
+    Button buttonOK;
 
     EditText nameSearch;
     ListView listView;
@@ -135,7 +138,11 @@ public class UHLineupActivity extends Activity { // implements OnClickListener {
 
         teamNumber = 0;
 
-        currentIdx = 0;
+        //currentIdx = 0;
+        // Restore preferences
+        SharedPreferences settings = getPreferences(Context.MODE_PRIVATE);
+        currentIdx = settings.getInt("currentIdx", 0);
+        
         currentIndex[teamNumber] = 0;
         lastIdx = -1;
         lastIndex[teamNumber] = 0;
@@ -513,7 +520,7 @@ public class UHLineupActivity extends Activity { // implements OnClickListener {
         // Toast.makeText(this, "User settings", Toast.LENGTH_SHORT).show();
         // return true;
         case R.id.information:
-            showDialog(DIALOG_INFO);
+            showDialog(DIALOG_ABOUT);
             return true;
         default:
             return super.onOptionsItemSelected(item);
@@ -567,15 +574,28 @@ public class UHLineupActivity extends Activity { // implements OnClickListener {
             });
 
             break;
-        case DIALOG_INFO:
-            String msg = "Game date: " + rosterDate + "\n" + "Game opponent: " + rosterGame;
-
-            builder.setMessage(msg).setCancelable(true).setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                public void onClick(DialogInterface dialog, int id) {
-                    dialog.cancel();
+        case DIALOG_ABOUT:
+            
+            
+//            String msg = "Game date: " + rosterDate + "\n" + "Game opponent: " + rosterGame;
+//
+//            builder.setMessage(msg).setCancelable(true).setPositiveButton("OK", new DialogInterface.OnClickListener() {
+//                public void onClick(DialogInterface dialog, int id) {
+//                    dialog.cancel();
+//                }
+//            });
+//            dialog = builder.create();
+            
+            
+            dialog.setContentView(R.layout.about);
+            buttonOK = (Button) dialog.findViewById(R.id.button1);
+            
+            buttonOK.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View view) {
+                    dismissDialog(DIALOG_ABOUT);
                 }
             });
-            dialog = builder.create();
+
             break;
 
         case DIALOG_NO_DATA:
@@ -660,5 +680,19 @@ public class UHLineupActivity extends Activity { // implements OnClickListener {
         }
         return dialog;
     }
+    
+    @Override
+    protected void onStop(){
+       super.onStop();
+
+      // We need an Editor object to make preference changes.
+      // All objects are from android.context.Context
+      SharedPreferences settings = getPreferences(Context.MODE_PRIVATE);
+      SharedPreferences.Editor editor = settings.edit();
+      editor.putInt("currentIdx", currentIdx);
+
+      // Commit the edits!
+      editor.commit();
+    }    
 
 }
