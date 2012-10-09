@@ -3,21 +3,52 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
-
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp" >
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="1"
+            android:text="Find by name:"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/buttonClose"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:paddingLeft="12dp"
+            android:paddingRight="12dp"
+            android:text="Close" />
+
+    </LinearLayout>
+
     <EditText
         android:id="@+id/nameSearch"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="text" >
+        android:imeOptions="actionDone"
+        android:inputType="text|textNoSuggestions" >
 
         <requestFocus />
     </EditText>
-
+
     <ListView
         android:id="@+id/listView1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content"
+        android:focusable="false"
+        android:focusableInTouchMode="false" >
+
     </ListView>
 
 </LinearLayout>

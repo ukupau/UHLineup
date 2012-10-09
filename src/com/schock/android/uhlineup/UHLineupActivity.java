@@ -1,18 +1,12 @@
 package com.schock.android.uhlineup;
 
-import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import org.json.JSONArray;
@@ -26,25 +20,18 @@ import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.hardware.Sensor;
-import android.hardware.SensorManager;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.GestureDetector;
-import android.view.GestureDetector.OnGestureListener;
-import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
-import android.view.View.OnClickListener;
-import android.view.View.OnKeyListener;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.*;
@@ -84,8 +71,9 @@ public class UHLineupActivity extends Activity { // implements OnClickListener {
     EditText searchText;
     ImageView imageView;
     BitmapFactory.Options options;
-    
+
     Button buttonOK;
+    Button buttonClose;
 
     EditText nameSearch;
     ListView listView;
@@ -138,11 +126,11 @@ public class UHLineupActivity extends Activity { // implements OnClickListener {
 
         teamNumber = 0;
 
-        //currentIdx = 0;
+        // currentIdx = 0;
         // Restore preferences
         SharedPreferences settings = getPreferences(Context.MODE_PRIVATE);
         currentIdx = settings.getInt("currentIdx", 0);
-        
+
         currentIndex[teamNumber] = 0;
         lastIdx = -1;
         lastIndex[teamNumber] = 0;
@@ -150,226 +138,227 @@ public class UHLineupActivity extends Activity { // implements OnClickListener {
         rosters[0] = new ArrayList<Player>();
         rosters[1] = new ArrayList<Player>();
 
-        TextView title = (TextView) findViewById(R.id.playerName);
-        // title.setText("testing");
-
         // Find the directory for the SD Card using the API
         sdcard = Environment.getExternalStorageDirectory();
-        
+
         // Get the text file
         InputStream inputStream = getResources().openRawResource(R.raw.uhlineup);
 
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
 
         int ii;
-         try {
-          ii = inputStream.read();
-          while (ii != -1)
-             {
-              byteArrayOutputStream.write(ii);
-              ii = inputStream.read();
-             }
-             inputStream.close();
-         } catch (IOException e) {
-             
-         }   
-         
-         String text = byteArrayOutputStream.toString();
-        
-//        File file = new File(sdcard, "uhlineup/uhlineup.json");
-//        if (file.exists()) {
-//
-//            // Read text from file
-//            StringBuilder text = new StringBuilder();
-//
-//            try {
-//                BufferedReader br = new BufferedReader(new FileReader(file));
-//                String line;
-//
-//                while ((line = br.readLine()) != null) {
-//                    text.append(line);
-//                    text.append('\n');
-//                }
-//                br.close();
-//            } catch (IOException e) {
-//                // You'll need to add proper error handling here
-//            }
+        try {
+            ii = inputStream.read();
+            while (ii != -1) {
+                byteArrayOutputStream.write(ii);
+                ii = inputStream.read();
+            }
+            inputStream.close();
+        } catch (IOException e) {
 
-            // title.setText(text.toString());
+        }
 
-            assignedNumbers = new int[100];
-            players = new ArrayList<Player>();
-            playerNames = new HashMap<String, Integer>();
+        String text = byteArrayOutputStream.toString();
 
-            try {
-                JSONObject jsonObj = new JSONObject(text);
+        // File file = new File(sdcard, "uhlineup/uhlineup.json");
+        // if (file.exists()) {
+        //
+        // // Read text from file
+        // StringBuilder text = new StringBuilder();
+        //
+        // try {
+        // BufferedReader br = new BufferedReader(new FileReader(file));
+        // String line;
+        //
+        // while ((line = br.readLine()) != null) {
+        // text.append(line);
+        // text.append('\n');
+        // }
+        // br.close();
+        // } catch (IOException e) {
+        // // You'll need to add proper error handling here
+        // }
 
-                JSONArray rosterObj = jsonObj.getJSONArray("players");
-                rosterDate = jsonObj.getString("date");
-                rosterGame = jsonObj.getString("opponent");
+        // title.setText(text.toString());
 
-                lastIdx = rosterObj.length() - 1;
+        assignedNumbers = new int[100];
+        players = new ArrayList<Player>();
+        playerNames = new HashMap<String, Integer>();
 
-                for (int i = 0; i < rosterObj.length(); i++) {
-                    JSONObject playerObj = rosterObj.getJSONObject(i);
+        try {
+            JSONObject jsonObj = new JSONObject(text);
 
-                    Player player = new Player();
+            JSONArray rosterObj = jsonObj.getJSONArray("players");
+            rosterDate = jsonObj.getString("date");
+            rosterGame = jsonObj.getString("opponent");
 
-                    // these 2 are strings
-                    player.name = playerObj.getString("name");
-                    player.number = playerObj.getInt("number");
-                    player.weight = playerObj.getInt("weight");
-                    player.height = playerObj.getString("height");
-                    player.year = playerObj.getString("year");
-                    player.position = playerObj.getString("position");
-                    // TODO: Remove leading and trailing spaces around "/".
-                    player.hometown = playerObj.getString("hometown").replace("/", "\n");
-                    player.image = playerObj.getString("image");
-                    playerNames.put(playerObj.getString("lastname") + ", " + playerObj.getString("firstname"), i);
+            lastIdx = rosterObj.length() - 1;
 
-                    players.add(player);
-                    // Log.v("UHLineup", player.name);
-                    // Log.v("UHLineup", Integer.toString(player.number));
-                    assignedNumbers[player.number] = 1;
-                }
+            for (int i = 0; i < rosterObj.length(); i++) {
+                JSONObject playerObj = rosterObj.getJSONObject(i);
 
-            } catch (Exception e) {
-                Log.v("UHLineup", e.getMessage());
-            } finally {
+                Player player = new Player();
+
+                // these 2 are strings
+                player.name = playerObj.getString("name");
+                player.number = playerObj.getInt("number");
+                player.weight = playerObj.getInt("weight");
+                player.height = playerObj.getString("height");
+                player.year = playerObj.getString("year");
+                player.position = playerObj.getString("position");
+                // TODO: Remove leading and trailing spaces around "/".
+                player.hometown = playerObj.getString("hometown").replace("/", "\n");
+                player.image = playerObj.getString("image");
+                playerNames.put(playerObj.getString("lastname") + ", " + playerObj.getString("firstname"), i);
+
+                players.add(player);
+                // Log.v("UHLineup", player.name);
+                // Log.v("UHLineup", Integer.toString(player.number));
+                assignedNumbers[player.number] = 1;
             }
 
-            listview_array = new String[playerNames.size()];
-            int idx = 0;
-            for (String s : playerNames.keySet()) {
-                listview_array[idx] = s;
-                idx++;
+        } catch (Exception e) {
+            Log.v("UHLineup", e.getMessage());
+        } finally {
+        }
+
+        listview_array = new String[playerNames.size()];
+        int idx = 0;
+        for (String s : playerNames.keySet()) {
+            listview_array[idx] = s;
+            idx++;
+        }
+        Arrays.sort(listview_array);
+
+        // Button search = (Button) findViewById(R.id.search);
+        // Button next = (Button)findViewById(R.id.next);
+        // Button prev = (Button)findViewById(R.id.prev);
+        // searchText = (EditText) findViewById(R.id.searchText);
+
+        // search.setOnClickListener(this);
+
+        // next.setOnClickListener(new View.OnClickListener() {
+        // public void onClick(View view) {
+        // if (currentIdx < lastIdx ) {
+        // currentIdx++;
+        // DisplayPlayer(currentIdx);
+        // }
+        //
+        // }
+        // });
+        //
+        // prev.setOnClickListener(new View.OnClickListener() {
+        // public void onClick(View view) {
+        // if (currentIdx > 0 ) {
+        // currentIdx--;
+        // DisplayPlayer(currentIdx);
+        // }
+        //
+        // }
+        // });
+
+        // This enables to GO button on the keyboard to invoke the search
+        // action.
+        // android:imeOptions="actionGo" must be set on the EditText field.
+        // searchText.setOnKeyListener(new OnKeyListener() {
+        // public boolean onKey(View view, int keyCode, KeyEvent event) {
+        // if (keyCode == KeyEvent.KEYCODE_ENTER) {
+        // onClick(view);
+        // return true;
+        // } else {
+        // return false;
+        // }
+        // }
+        // });
+
+        // InputMethodManager imm = (InputMethodManager)getSystemService(
+        // Context.INPUT_METHOD_SERVICE);
+        // imm.hideSoftInputFromWindow(search.getWindowToken(), 0);
+
+        // TODO: Does this work? Can delete?
+        // getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+
+        LinearLayout view = (LinearLayout) findViewById(R.id.LinearLayout0);
+
+        view.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                return gestureDetector.onTouchEvent(event);
             }
-            Arrays.sort(listview_array);
+        });
 
-            // Button search = (Button) findViewById(R.id.search);
-            // Button next = (Button)findViewById(R.id.next);
-            // Button prev = (Button)findViewById(R.id.prev);
-            // searchText = (EditText) findViewById(R.id.searchText);
+        gestureDetector = new GestureDetector(new GestureDetector.SimpleOnGestureListener() {
+            @Override
+            public void onLongPress(MotionEvent e) {
+                Log.d(TAG, "Long Press event");
+                showDialog(DIALOG_LIST);
+            }
 
-            // search.setOnClickListener(this);
+            @Override
+            public boolean onDoubleTap(MotionEvent e) {
+                Log.d(TAG, "Double Tap event");
+                showDialog(DIALOG_GRID);
+                return true;
+            }
 
-            // next.setOnClickListener(new View.OnClickListener() {
-            // public void onClick(View view) {
-            // if (currentIdx < lastIdx ) {
-            // currentIdx++;
-            // DisplayPlayer(currentIdx);
-            // }
-            //
-            // }
-            // });
-            //
-            // prev.setOnClickListener(new View.OnClickListener() {
-            // public void onClick(View view) {
-            // if (currentIdx > 0 ) {
-            // currentIdx--;
-            // DisplayPlayer(currentIdx);
-            // }
-            //
-            // }
-            // });
+            @Override
+            public boolean onDown(MotionEvent e) {
+                return true;
+            }
 
-            // This enables to GO button on the keyboard to invoke the search
-            // action.
-            // android:imeOptions="actionGo" must be set on the EditText field.
-            // searchText.setOnKeyListener(new OnKeyListener() {
-            // public boolean onKey(View view, int keyCode, KeyEvent event) {
-            // if (keyCode == KeyEvent.KEYCODE_ENTER) {
-            // onClick(view);
-            // return true;
-            // } else {
-            // return false;
-            // }
-            // }
-            // });
+            private static final int SWIPE_MIN_DISTANCE = 60;
+            private static final int SWIPE_THRESHOLD_VELOCITY = 100;
 
-            // InputMethodManager imm = (InputMethodManager)getSystemService(
-            // Context.INPUT_METHOD_SERVICE);
-            // imm.hideSoftInputFromWindow(search.getWindowToken(), 0);
-
-            // TODO: Does this work? Can delete?
-            // getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
-
-            LinearLayout view = (LinearLayout) findViewById(R.id.LinearLayout0);
-
-            view.setOnTouchListener(new View.OnTouchListener() {
-                @Override
-                public boolean onTouch(View v, MotionEvent event) {
-                    return gestureDetector.onTouchEvent(event);
-                }
-            });
-
-            gestureDetector = new GestureDetector(new GestureDetector.SimpleOnGestureListener() {
-                @Override
-                public void onLongPress(MotionEvent e) {
-                    Log.d(TAG, "Long Press event");
-                    showDialog(DIALOG_LIST);
-                }
-
-                @Override
-                public boolean onDoubleTap(MotionEvent e) {
-                    Log.d(TAG, "Double Tap event");
-                    showDialog(DIALOG_GRID);
-                    return true;
-                }
-
-                @Override
-                public boolean onDown(MotionEvent e) {
-                    return true;
-                }
-
-                private static final int SWIPE_MIN_DISTANCE = 60;
-                private static final int SWIPE_THRESHOLD_VELOCITY = 100;
-
-                @Override
-                public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
-                    if (e1.getX() - e2.getX() > SWIPE_MIN_DISTANCE && Math.abs(velocityX) > SWIPE_THRESHOLD_VELOCITY) {
-                        Log.d(TAG, "Right to left");
-                        if (currentIdx < lastIdx) {
-                            currentIdx++;
-                            DisplayPlayer(currentIdx);
-                        }
-                        return true;
-                    } else if (e2.getX() - e1.getX() > SWIPE_MIN_DISTANCE && Math.abs(velocityX) > SWIPE_THRESHOLD_VELOCITY) {
-                        Log.d(TAG, "Left to right");
-                        if (currentIdx > 0) {
-                            currentIdx--;
-                            DisplayPlayer(currentIdx);
-                        }
-
-                        return true;
+            @Override
+            public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
+                if (e1.getX() - e2.getX() > SWIPE_MIN_DISTANCE && Math.abs(velocityX) > SWIPE_THRESHOLD_VELOCITY) {
+                    Log.d(TAG, "Right to left");
+                    if (currentIdx < lastIdx) {
+                        currentIdx++;
+                    } else {
+                        currentIdx = 0;
+                        Toast.makeText(context, "Top of roster", Toast.LENGTH_SHORT).show();
                     }
-                    return false;
+                    DisplayPlayer(currentIdx);
+                    return true;
+                } else if (e2.getX() - e1.getX() > SWIPE_MIN_DISTANCE && Math.abs(velocityX) > SWIPE_THRESHOLD_VELOCITY) {
+                    Log.d(TAG, "Left to right");
+                    if (currentIdx > 0) {
+                        currentIdx--;
+                    } else {
+                        currentIdx = lastIdx;
+                        Toast.makeText(context, "Bottom of roster", Toast.LENGTH_SHORT).show();
+                    }
+                    DisplayPlayer(currentIdx);
+                    return true;
                 }
-            });
-            gestureDetector.setIsLongpressEnabled(true);
-
-            imageView = (ImageView) findViewById(R.id.imageView1);
-
-            options = new BitmapFactory.Options();
-            options.inSampleSize = 1;
-
-            // Keyboard slide out type. Manifest setting. No change noticed.
-            // TODO: Add UH and opponent using tabs.
-            // TODO: Sliding door animation
-
-            // Note: Had problems with word wrap. Would not wrap. Don't know
-            // what caused the problem.
-            // Deleted and created a new text view which worked.
-
-            if (lastIdx < 0) {
-                showDialog(DIALOG_BAD_DATA);
-            } else {
-                DisplayPlayer(currentIdx);
+                return false;
             }
+        });
+        gestureDetector.setIsLongpressEnabled(true);
 
-//        } else {
-//            showDialog(DIALOG_NO_DATA);
-//        }
+        imageView = (ImageView) findViewById(R.id.imageView1);
+
+        options = new BitmapFactory.Options();
+        options.inSampleSize = 1;
+
+        // Keyboard slide out type. Manifest setting. No change noticed.
+        // TODO: Add UH and opponent using tabs.
+        // TODO: Sliding door animation
+
+        // Note: Had problems with word wrap. Would not wrap. Don't know
+        // what caused the problem.
+        // Deleted and created a new text view which worked.
+
+        if (lastIdx < 0) {
+            showDialog(DIALOG_BAD_DATA);
+        } else {
+            DisplayPlayer(currentIdx);
+        }
+
+        // } else {
+        // showDialog(DIALOG_NO_DATA);
+        // }
 
     }
 
@@ -388,23 +377,25 @@ public class UHLineupActivity extends Activity { // implements OnClickListener {
             // 1. sdcard
             // 2. assets
             // 3. default image
-            // TODO: /mnt/sdcard vs /sdcard.
+            // /mnt/sdcard vs /sdcard.
             // /sdcard is a symbolic link to /mnt/sdcard (at least on Samsung
             // Exhibit II)
-//            File file = new File(sdcard, "/uhlineup/" + players.get(idx).image);
-//            if (file.exists()) {
-//                bm = BitmapFactory.decodeFile(sdcard.getPath() + "/uhlineup/" + players.get(idx).image, options);
-//                imageView.setImageBitmap(bm);
-//            }
-//            else {
-                try {
-                    InputStream istr = getAssets().open(players.get(idx).image);
-                    bm = BitmapFactory.decodeStream(istr);
-                    imageView.setImageBitmap(bm);
-                } catch (IOException e) {
-                    imageView.setImageResource(R.drawable.uhwarriors1);
-                }
-//            } 
+            // File file = new File(sdcard, "/uhlineup/" +
+            // players.get(idx).image);
+            // if (file.exists()) {
+            // bm = BitmapFactory.decodeFile(sdcard.getPath() + "/uhlineup/" +
+            // players.get(idx).image, options);
+            // imageView.setImageBitmap(bm);
+            // }
+            // else {
+            try {
+                InputStream istr = getAssets().open(players.get(idx).image);
+                bm = BitmapFactory.decodeStream(istr);
+                imageView.setImageBitmap(bm);
+            } catch (IOException e) {
+                imageView.setImageResource(R.drawable.uhwarriors1);
+            }
+            // }
             currentIdx = idx;
 
         }
@@ -437,22 +428,29 @@ public class UHLineupActivity extends Activity { // implements OnClickListener {
         // imm.toggleSoftInput(0, 0); // This seems to be a toggle.
     }
 
-    public void nextPlayer(View view) {
-        if (currentIdx < lastIdx) {
-            currentIdx++;
-            DisplayPlayer(currentIdx);
-        }
-    }
-
-    public void prevPlayer(View view) {
-        if (currentIdx > 0) {
-            currentIdx--;
-            DisplayPlayer(currentIdx);
-        }
-    }
+    // public void nextPlayer(View view) {
+    // if (currentIdx < lastIdx) {
+    // currentIdx++;
+    // }
+    // else {
+    // currentIdx = 0;
+    // Toast.makeText(context, "Top of roster", Toast.LENGTH_SHORT).show();
+    // }
+    // DisplayPlayer(currentIdx);
+    // }
+    //
+    // public void prevPlayer(View view) {
+    // if (currentIdx > 0) {
+    // currentIdx--;
+    // }
+    // else {
+    // currentIdx = lastIdx;
+    // Toast.makeText(context, "Bottom of roster", Toast.LENGTH_SHORT).show();
+    // }
+    // DisplayPlayer(currentIdx);
+    // }
 
     public void findPlayer(int playerNumber) {
-        // TODO: Need to handle case where the number does not exist.
         // It is assumed the player numbers are in order, lowest to highest.
         for (int i = 0; i <= lastIdx; i++) {
             if (players.get(i).number == playerNumber) {
@@ -485,7 +483,6 @@ public class UHLineupActivity extends Activity { // implements OnClickListener {
             playerNumber = 0;
         }
 
-        // TODO: Need to handle case where the number does not exist.
         // It is assumed the player numbers are in order, lowest to highest.
         for (int i = 0; i <= lastIdx; i++) {
             if (players.get(i).number == playerNumber) {
@@ -575,21 +572,21 @@ public class UHLineupActivity extends Activity { // implements OnClickListener {
 
             break;
         case DIALOG_ABOUT:
-            
-            
-//            String msg = "Game date: " + rosterDate + "\n" + "Game opponent: " + rosterGame;
-//
-//            builder.setMessage(msg).setCancelable(true).setPositiveButton("OK", new DialogInterface.OnClickListener() {
-//                public void onClick(DialogInterface dialog, int id) {
-//                    dialog.cancel();
-//                }
-//            });
-//            dialog = builder.create();
-            
-            
+
+            // String msg = "Game date: " + rosterDate + "\n" +
+            // "Game opponent: " + rosterGame;
+            //
+            // builder.setMessage(msg).setCancelable(true).setPositiveButton("OK",
+            // new DialogInterface.OnClickListener() {
+            // public void onClick(DialogInterface dialog, int id) {
+            // dialog.cancel();
+            // }
+            // });
+            // dialog = builder.create();
+
             dialog.setContentView(R.layout.about);
             buttonOK = (Button) dialog.findViewById(R.id.button1);
-            
+
             buttonOK.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View view) {
                     dismissDialog(DIALOG_ABOUT);
@@ -631,6 +628,7 @@ public class UHLineupActivity extends Activity { // implements OnClickListener {
 
             nameSearch = (EditText) dialog.findViewById(R.id.nameSearch);
             listView = (ListView) dialog.findViewById(R.id.listView1);
+            buttonClose = (Button) dialog.findViewById(R.id.buttonClose);
 
             listView.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, listview_array));
 
@@ -667,12 +665,21 @@ public class UHLineupActivity extends Activity { // implements OnClickListener {
                     // .show();
                     dismissDialog(DIALOG_LIST);
                     DisplayPlayer(playerNames.get(text));
-                    nameSearch.setText("");
                 }
             });
 
+            buttonClose.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View view) {
+                    dismissDialog(DIALOG_LIST);
+                }
+            });
             // Always force open keyboard.
-            dialog.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
+            dialog.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
+            // Force open keyboard on EditText focus.
+            // This no work.
+            // InputMethodManager imm = (InputMethodManager)
+            // getSystemService(Context.INPUT_METHOD_SERVICE);
+            // imm.showSoftInput(nameSearch, InputMethodManager.SHOW_FORCED);
 
             break;
         default:
@@ -680,19 +687,34 @@ public class UHLineupActivity extends Activity { // implements OnClickListener {
         }
         return dialog;
     }
-    
+
     @Override
-    protected void onStop(){
-       super.onStop();
+    protected void onPrepareDialog(int id, Dialog dialog) {
+        switch (id) {
 
-      // We need an Editor object to make preference changes.
-      // All objects are from android.context.Context
-      SharedPreferences settings = getPreferences(Context.MODE_PRIVATE);
-      SharedPreferences.Editor editor = settings.edit();
-      editor.putInt("currentIdx", currentIdx);
+        case DIALOG_LIST:
+            // Clear search criteria.
+            nameSearch.setText("");
+            break;
+            
+        default:
+        }
 
-      // Commit the edits!
-      editor.commit();
-    }    
+        return;
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+
+        // We need an Editor object to make preference changes.
+        // All objects are from android.context.Context
+        SharedPreferences settings = getPreferences(Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = settings.edit();
+        editor.putInt("currentIdx", currentIdx);
+
+        // Commit the edits!
+        editor.commit();
+    }
 
 }
