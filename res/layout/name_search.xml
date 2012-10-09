@@ -8,7 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp" >
-
+
         <TextView
             android:id="@+id/textView1"
             android:layout_width="wrap_content"
@@ -16,6 +16,7 @@
             android:layout_marginLeft="5dp"
             android:layout_weight="1"
             android:text="Find by name:"
+            android:textSize="18dp"
             android:textStyle="bold" />
 
         <Button

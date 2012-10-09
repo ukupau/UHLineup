@@ -288,18 +288,18 @@ public class UHLineupActivity extends Activity { // implements OnClickListener {
         });
 
         gestureDetector = new GestureDetector(new GestureDetector.SimpleOnGestureListener() {
-            @Override
-            public void onLongPress(MotionEvent e) {
-                Log.d(TAG, "Long Press event");
-                showDialog(DIALOG_LIST);
-            }
+//            @Override
+//            public void onLongPress(MotionEvent e) {
+//                Log.d(TAG, "Long Press event");
+//                showDialog(DIALOG_LIST);
+//            }
 
-            @Override
-            public boolean onDoubleTap(MotionEvent e) {
-                Log.d(TAG, "Double Tap event");
-                showDialog(DIALOG_GRID);
-                return true;
-            }
+//            @Override
+//            public boolean onDoubleTap(MotionEvent e) {
+//                Log.d(TAG, "Double Tap event");
+//                showDialog(DIALOG_GRID);
+//                return true;
+//            }
 
             @Override
             public boolean onDown(MotionEvent e) {
