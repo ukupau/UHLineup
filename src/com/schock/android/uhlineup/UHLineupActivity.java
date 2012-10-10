@@ -18,6 +18,7 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
+import android.content.pm.ActivityInfo;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
@@ -33,6 +34,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.View.OnClickListener;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.*;
 import android.widget.AdapterView.OnItemClickListener;
@@ -45,6 +47,7 @@ public class UHLineupActivity extends Activity { // implements OnClickListener {
     private static final int DIALOG_NO_DATA = 3;
     private static final int DIALOG_BAD_DATA = 4;
     private static final int DIALOG_LIST = 5;
+    private static final int DIALOG_SETTINGS = 6;
 
     String rosterDate = "";
     String rosterGame = "";
@@ -83,6 +86,9 @@ public class UHLineupActivity extends Activity { // implements OnClickListener {
     String[] listview_array = new String[200];
     ArrayList<String> array_sort = new ArrayList<String>();
 
+    Boolean isPortraitMode;
+    CheckBox lockPortraitMode;
+    
     private File sdcard;
 
     ImageButton useGrid;
@@ -124,12 +130,22 @@ public class UHLineupActivity extends Activity { // implements OnClickListener {
         playerName = (TextView) findViewById(R.id.playerName);
         playerHometown = (TextView) findViewById(R.id.hometown);
 
+        
         teamNumber = 0;
-
         // currentIdx = 0;
         // Restore preferences
         SharedPreferences settings = getPreferences(Context.MODE_PRIVATE);
         currentIdx = settings.getInt("currentIdx", 0);
+        isPortraitMode = settings.getBoolean("portraitLock", true);
+        
+//        if (isPortraitMode && getResources().getConfiguration().orientation == ActivityInfo.SCREEN_ORIENTATION_PORTRAIT) {
+//            
+//        }
+
+        if (isPortraitMode) {
+        this.setRequestedOrientation(
+                ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        }
 
         currentIndex[teamNumber] = 0;
         lastIdx = -1;
@@ -317,7 +333,7 @@ public class UHLineupActivity extends Activity { // implements OnClickListener {
                         currentIdx++;
                     } else {
                         currentIdx = 0;
-                        Toast.makeText(context, "Top of roster", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(context, "Top of roster", Toast.LENGTH_SHORT).show();
                     }
                     DisplayPlayer(currentIdx);
                     return true;
@@ -327,7 +343,7 @@ public class UHLineupActivity extends Activity { // implements OnClickListener {
                         currentIdx--;
                     } else {
                         currentIdx = lastIdx;
-                        Toast.makeText(context, "Bottom of roster", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(context, "Bottom of roster", Toast.LENGTH_SHORT).show();
                     }
                     DisplayPlayer(currentIdx);
                     return true;
@@ -362,6 +378,17 @@ public class UHLineupActivity extends Activity { // implements OnClickListener {
 
     }
 
+    public void setLockPortraitMode() {
+        this.setRequestedOrientation(
+                ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+    }
+    
+    public void unsetLockPortraitMode() {
+        this.setRequestedOrientation(
+                ActivityInfo.SCREEN_ORIENTATION_SENSOR);
+    }
+    
+    
     public void DisplayPlayer(int idx) {
         if (idx <= lastIdx) {
             playerNo.setText(Integer.toString(players.get(idx).number));
@@ -519,6 +546,9 @@ public class UHLineupActivity extends Activity { // implements OnClickListener {
         case R.id.information:
             showDialog(DIALOG_ABOUT);
             return true;
+        case R.id.settings:
+            showDialog(DIALOG_SETTINGS);
+            return true;
         default:
             return super.onOptionsItemSelected(item);
         }
@@ -592,6 +622,45 @@ public class UHLineupActivity extends Activity { // implements OnClickListener {
                     dismissDialog(DIALOG_ABOUT);
                 }
             });
+
+            break;
+
+        case DIALOG_SETTINGS:
+
+            dialog.setContentView(R.layout.settings);
+            buttonOK = (Button) dialog.findViewById(R.id.button1);
+
+            buttonOK.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View view) {
+                    dismissDialog(DIALOG_SETTINGS);
+                }
+            });
+            
+            lockPortraitMode = (CheckBox) dialog.findViewById(R.id.lockPortraitMode);
+            lockPortraitMode.setChecked(isPortraitMode);
+            
+            lockPortraitMode.setOnClickListener(new OnClickListener() {
+                
+                @Override
+                public void onClick(View v) {
+                  if (((CheckBox) v).isChecked() && !isPortraitMode) {
+//                      Toast.makeText(UHLineupActivity.this,
+//                         "Lock portrait mode", Toast.LENGTH_SHORT).show();
+                      isPortraitMode = true;
+                      setLockPortraitMode();
+                      // Refresh screen?
+                  }
+                  
+                  if (!((CheckBox) v).isChecked() && isPortraitMode) {
+//                      Toast.makeText(UHLineupActivity.this,
+//                         "unlock portrait mode", Toast.LENGTH_SHORT).show();
+                      isPortraitMode = false;
+                      unsetLockPortraitMode();
+                  }
+                }
+              });
+           
+            
 
             break;
 
@@ -712,6 +781,7 @@ public class UHLineupActivity extends Activity { // implements OnClickListener {
         SharedPreferences settings = getPreferences(Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = settings.edit();
         editor.putInt("currentIdx", currentIdx);
+        editor.putBoolean("portraitLock", isPortraitMode);
 
         // Commit the edits!
         editor.commit();
