@@ -384,7 +384,7 @@ public class UHLineupActivity extends Activity { // implements OnClickListener {
         });
         gestureDetector.setIsLongpressEnabled(true);
 
-        imageView = (ImageView) findViewById(R.id.imageView1);
+//        imageView = (ImageView) findViewById(R.id.imageView1);
 
         options = new BitmapFactory.Options();
         options.inSampleSize = 1;
@@ -676,7 +676,7 @@ public class UHLineupActivity extends Activity { // implements OnClickListener {
                 }
             });
 
-            textAboutHeader = (TextView) dialog.findViewById(R.id.textAboutHeader);
+            textAboutHeader = (TextView) dialog.findViewById(R.id.aboutApp);
             textAboutHeader.setText("UH Lineup\n\nGame Data:\n   Date: " + rosterDate + "\n   Opponent: " + rosterGame);
             break;
 

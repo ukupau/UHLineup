@@ -6,23 +6,21 @@
     android:orientation="vertical"
     android:paddingBottom="10dp"
     android:paddingTop="10dp" >
-
-    <TextView
+    <TextView
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:text="Settings"
-        android:textSize="24dp" />
-
+        android:textSize="24sp" />
+
     <TextView
         android:id="@+id/textView3"
         android:layout_width="fill_parent"
         android:layout_height="1dp"
         android:background="@color/gray" />
-
-    <CheckBox
+    <CheckBox
         android:id="@+id/lockPortraitMode"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -31,7 +29,7 @@
         android:checked="true"
         android:paddingLeft="50dp"
         android:text="@string/lock_checkbox_label" />
-
+
     <Button
         android:id="@+id/button1"
         style="?android:attr/buttonStyleSmall"
@@ -39,8 +37,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="150dp"
-        android:paddingLeft="15dp"
-        android:paddingRight="15dp"
+        android:paddingLeft="25dp"
+        android:paddingRight="25dp"
         android:text="OK" />
 
 </LinearLayout>
