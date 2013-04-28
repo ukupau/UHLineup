@@ -49,56 +49,65 @@ public class UHLineupActivity extends Activity { // implements OnClickListener {
     private static final int DIALOG_LIST = 5;
     private static final int DIALOG_SETTINGS = 6;
 
-    String rosterDate = "";
-    String rosterGame = "";
+    private String rosterDate = "";
+    private String rosterGame = "";
 
-    ArrayList<Player> players;
-    ArrayList<Player> opponents;
-    ArrayList<Player>[] rosters = new ArrayList[2]; // Will get a compiler
+    private ArrayList<Player> players;
+    private ArrayList<Player> opponents;
+    private ArrayList<Player>[] rosters = new ArrayList[2]; // Will get a compiler
                                                     // warning here.
 
-    int currentIdx;
-    int[] currentIndex = new int[2];
-    int lastIdx;
-    int[] lastIndex = new int[2];
-    int teamNumber = 0;
+    private int currentIdx;
+    private int[] currentIndex = new int[2];
+    private int lastIdx;
+    private int[] lastIndex = new int[2];
+    private int teamNumber = 0;
     private int[] assignedNumbers;
 
-    TextView playerNo;
-    TextView playerPosition;
-    TextView playerYear;
-    TextView playerHeight;
-    TextView playerWeight;
-    TextView playerName;
-    TextView playerHometown;
-    EditText searchText;
-    ImageView imageView;
-    BitmapFactory.Options options;
+    private TextView[] playerNo;
+    private TextView[] playerPosition;
+    private TextView[] playerYear;
+    private TextView[] playerHeight;
+    private TextView[] playerWeight;
+    private TextView[] playerName;
+    private TextView[] playerHometown;
+    private ImageView[] playerImage;
 
-    Button buttonOK;
-    Button buttonClose;
+    private EditText searchText;
+    private ImageView imageView;
+    private BitmapFactory.Options options;
 
-    EditText nameSearch;
-    ListView listView;
-    int textlength = 0;
+    private Button buttonOK;
+    private Button buttonClose;
 
-    Map<String, Integer> playerNames;
-    String[] listview_array = new String[200];
-    ArrayList<String> array_sort = new ArrayList<String>();
+    private EditText nameSearch;
+    private ListView listView;
+    private ViewFlipper viewFlipper;
 
-    Boolean isPortraitMode;
-    CheckBox lockPortraitMode;
+    private int textlength = 0;
+
+    private Map<String, Integer> playerNames;
+    private String[] listview_array = new String[200];
+    private ArrayList<String> array_sort = new ArrayList<String>();
+
+    private Boolean isPortraitMode;
+    private CheckBox lockPortraitMode;
     
     private File sdcard;
 
-    ImageButton useGrid;
-    ImageButton useList;
+    private ImageButton useGrid;
+    private ImageButton useList;
+    
+    private TextView textAboutHeader;
 
-    static private String TAG = "UHLineup";
+    private static String TAG = "UHLineup";
     private GestureDetector gestureDetector;
 
-    final Context context = this;
-
+    private final Context context = this;
+    
+    private int currentView;
+    private int lastView;
+    
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -122,14 +131,37 @@ public class UHLineupActivity extends Activity { // implements OnClickListener {
         // Get data from external files dir (e.g. /SDCARD)
         // If this doesn't exist, use the default data in the raw resource.
 
-        playerNo = (TextView) findViewById(R.id.playerNo);
-        playerPosition = (TextView) findViewById(R.id.playerPosition);
-        playerYear = (TextView) findViewById(R.id.playerYear);
-        playerHeight = (TextView) findViewById(R.id.playerHeight);
-        playerWeight = (TextView) findViewById(R.id.playerWeight);
-        playerName = (TextView) findViewById(R.id.playerName);
-        playerHometown = (TextView) findViewById(R.id.hometown);
+        playerNo = new TextView[2];
+        playerPosition = new TextView[2];
+        playerYear = new TextView[2];
+        playerHeight = new TextView[2];
+        playerWeight = new TextView[2];
+        playerName = new TextView[2];
+        playerHometown = new TextView[2];
+        playerImage = new ImageView[2];
 
+        playerNo[0] = (TextView) findViewById(R.id.playerNo0);
+        playerPosition[0] = (TextView) findViewById(R.id.playerPosition0);
+        playerYear[0] = (TextView) findViewById(R.id.playerYear0);
+        playerHeight[0] = (TextView) findViewById(R.id.playerHeight0);
+        playerWeight[0] = (TextView) findViewById(R.id.playerWeight0);
+        playerName[0] = (TextView) findViewById(R.id.playerName0);
+        playerHometown[0] = (TextView) findViewById(R.id.hometown0);
+        playerImage[0] = (ImageView) findViewById(R.id.imageView0);
+
+        playerNo[1] = (TextView) findViewById(R.id.playerNo1);
+        playerPosition[1] = (TextView) findViewById(R.id.playerPosition1);
+        playerYear[1] = (TextView) findViewById(R.id.playerYear1);
+        playerHeight[1] = (TextView) findViewById(R.id.playerHeight1);
+        playerWeight[1] = (TextView) findViewById(R.id.playerWeight1);
+        playerName[1] = (TextView) findViewById(R.id.playerName1);
+        playerHometown[1] = (TextView) findViewById(R.id.hometown1);
+        playerImage[1] = (ImageView) findViewById(R.id.imageView1);
+        
+        currentView = 0;
+        lastView = 1;
+        
+        viewFlipper = (ViewFlipper) findViewById(R.id.viewFlipper1);
         
         teamNumber = 0;
         // currentIdx = 0;
@@ -206,6 +238,7 @@ public class UHLineupActivity extends Activity { // implements OnClickListener {
 
             JSONArray rosterObj = jsonObj.getJSONArray("players");
             rosterDate = jsonObj.getString("date");
+            rosterDate = rosterDate.substring(4,6) + "/" + rosterDate.substring(6,8) + "/" + rosterDate.substring(0,4);
             rosterGame = jsonObj.getString("opponent");
 
             lastIdx = rosterObj.length() - 1;
@@ -294,9 +327,7 @@ public class UHLineupActivity extends Activity { // implements OnClickListener {
         // TODO: Does this work? Can delete?
         // getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
-        LinearLayout view = (LinearLayout) findViewById(R.id.LinearLayout0);
-
-        view.setOnTouchListener(new View.OnTouchListener() {
+        viewFlipper.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 return gestureDetector.onTouchEvent(event);
@@ -335,7 +366,7 @@ public class UHLineupActivity extends Activity { // implements OnClickListener {
                         currentIdx = 0;
                         //Toast.makeText(context, "Top of roster", Toast.LENGTH_SHORT).show();
                     }
-                    DisplayPlayer(currentIdx);
+                    displayNextPlayerWithTransition(currentIdx);
                     return true;
                 } else if (e2.getX() - e1.getX() > SWIPE_MIN_DISTANCE && Math.abs(velocityX) > SWIPE_THRESHOLD_VELOCITY) {
                     Log.d(TAG, "Left to right");
@@ -345,7 +376,7 @@ public class UHLineupActivity extends Activity { // implements OnClickListener {
                         currentIdx = lastIdx;
                         //Toast.makeText(context, "Bottom of roster", Toast.LENGTH_SHORT).show();
                     }
-                    DisplayPlayer(currentIdx);
+                    displayPreviousPlayerWithTransition(currentIdx);
                     return true;
                 }
                 return false;
@@ -378,6 +409,26 @@ public class UHLineupActivity extends Activity { // implements OnClickListener {
 
     }
 
+    private void displayNextPlayerWithTransition(int index) {
+        int tempView = currentView;
+        currentView = lastView;
+        lastView = tempView;
+        DisplayPlayer(index);
+        viewFlipper.setInAnimation(this, R.anim.in_from_right);
+        viewFlipper.setOutAnimation(this, R.anim.out_to_left);
+        viewFlipper.showNext();
+    }
+    
+    private void displayPreviousPlayerWithTransition(int index) {
+        int tempView = currentView;
+        currentView = lastView;
+        lastView = tempView;
+        DisplayPlayer(index);
+        viewFlipper.setInAnimation(this, R.anim.in_from_left);
+        viewFlipper.setOutAnimation(this, R.anim.out_to_right);
+        viewFlipper.showNext();
+    }
+    
     public void setLockPortraitMode() {
         this.setRequestedOrientation(
                 ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
@@ -391,13 +442,13 @@ public class UHLineupActivity extends Activity { // implements OnClickListener {
     
     public void DisplayPlayer(int idx) {
         if (idx <= lastIdx) {
-            playerNo.setText(Integer.toString(players.get(idx).number));
-            playerPosition.setText(players.get(idx).position);
-            playerYear.setText(players.get(idx).year);
-            playerHeight.setText(players.get(idx).height);
-            playerWeight.setText(Integer.toString(players.get(idx).weight));
-            playerName.setText(players.get(idx).name);
-            playerHometown.setText(players.get(idx).hometown);
+            playerNo[currentView].setText(Integer.toString(players.get(idx).number));
+            playerPosition[currentView].setText(players.get(idx).position);
+            playerYear[currentView].setText(players.get(idx).year);
+            playerHeight[currentView].setText(players.get(idx).height);
+            playerWeight[currentView].setText(Integer.toString(players.get(idx).weight));
+            playerName[currentView].setText(players.get(idx).name);
+            playerHometown[currentView].setText(players.get(idx).hometown);
             Bitmap bm;
 
             // Order of image retrieval.
@@ -418,9 +469,11 @@ public class UHLineupActivity extends Activity { // implements OnClickListener {
             try {
                 InputStream istr = getAssets().open(players.get(idx).image);
                 bm = BitmapFactory.decodeStream(istr);
-                imageView.setImageBitmap(bm);
+                //imageView.setImageBitmap(bm);
+                playerImage[currentView].setImageBitmap(bm);
             } catch (IOException e) {
-                imageView.setImageResource(R.drawable.uhwarriors1);
+                //imageView.setImageResource(R.drawable.uhwarriors1);
+                playerImage[currentView].setImageResource(R.drawable.uhwarriors1);
             }
             // }
             currentIdx = idx;
@@ -623,6 +676,8 @@ public class UHLineupActivity extends Activity { // implements OnClickListener {
                 }
             });
 
+            textAboutHeader = (TextView) dialog.findViewById(R.id.textAboutHeader);
+            textAboutHeader.setText("UH Lineup\n\nGame Data:\n   Date: " + rosterDate + "\n   Opponent: " + rosterGame);
             break;
 
         case DIALOG_SETTINGS:

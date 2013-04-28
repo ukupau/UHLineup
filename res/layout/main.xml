@@ -5,16 +5,336 @@
     android:orientation="vertical"
     android:weightSum="1" >
 
-    <LinearLayout
-        android:id="@+id/LinearLayout0"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_marginTop="5dp"
-        android:orientation="vertical" >
+        <ViewFlipper
+            android:id="@+id/viewFlipper1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" >
+
+        <LinearLayout
+            android:id="@+id/linearLayout0"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+            
+            <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <ImageView
+                android:id="@+id/imageView0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:src="@drawable/uhwarriors1" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/playerNo0"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="top|center"
+                    android:paddingRight="20dp"
+                    android:text="99"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textSize="50dp" />
+
+                <TableLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="10dp" >
+
+                    <TableRow
+                        android:id="@+id/tableRow1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" >
+
+                        <TextView
+                            android:id="@+id/textPos0"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Pos"
+                            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                        <TextView
+                            android:id="@+id/textYr0"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Yr"
+                            android:textAppearance="?android:attr/textAppearanceSmall" />
+                    </TableRow>
+
+                    <TableRow
+                        android:id="@+id/tableRow2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="5dp" >
+
+                        <TextView
+                            android:id="@+id/playerPosition0"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="QB"
+                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:textSize="30dp" />
+
+                        <TextView
+                            android:id="@+id/playerYear0"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Jr"
+                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:textSize="30dp" />
+                    </TableRow>
+
+                    <TableRow
+                        android:id="@+id/tableRow3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" >
+
+                        <TextView
+                            android:id="@+id/textHt0"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Ht"
+                            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                        <TextView
+                            android:id="@+id/textWt0"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Wt"
+                            android:textAppearance="?android:attr/textAppearanceSmall" />
+                    </TableRow>
+
+                    <TableRow
+                        android:id="@+id/tableRow4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" >
+
+                        <TextView
+                            android:id="@+id/playerHeight0"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="5-11"
+                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:textSize="30dp" />
+
+                        <TextView
+                            android:id="@+id/playerWeight0"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="200"
+                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:textSize="30dp" />
+                    </TableRow>
+                </TableLayout>
+
+            </LinearLayout>
+            </LinearLayout>
+            
+        <TextView
+            android:id="@+id/playerName0"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="5dp"
+            android:text="Player name"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="30dp" />
+
+        <TextView
+            android:id="@+id/hometown0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp"
+            android:text="Player hometown"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="30dp" />
+
+        </LinearLayout>
+            
+        <LinearLayout
+            android:id="@+id/linearLayout1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <ImageView
+                android:id="@+id/imageView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:src="@drawable/uhwarriors1" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/playerNo1"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="top|center"
+                    android:paddingRight="20dp"
+                    android:text="99"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textSize="50dp" />
+
+                <TableLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingLeft="10dp" >
+
+                    <TableRow
+                        android:id="@+id/tableRow1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" >
+
+                        <TextView
+                            android:id="@+id/textPos1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Pos"
+                            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                        <TextView
+                            android:id="@+id/textYr1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Yr"
+                            android:textAppearance="?android:attr/textAppearanceSmall" />
+                    </TableRow>
+
+                    <TableRow
+                        android:id="@+id/tableRow2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="5dp" >
+
+                        <TextView
+                            android:id="@+id/playerPosition1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="QB"
+                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:textSize="30dp" />
+
+                        <TextView
+                            android:id="@+id/playerYear1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Jr"
+                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:textSize="30dp" />
+                    </TableRow>
+
+                    <TableRow
+                        android:id="@+id/tableRow3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" >
+
+                        <TextView
+                            android:id="@+id/textHt1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Ht"
+                            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                        <TextView
+                            android:id="@+id/textWt1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Wt"
+                            android:textAppearance="?android:attr/textAppearanceSmall" />
+                    </TableRow>
+
+                    <TableRow
+                        android:id="@+id/tableRow4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" >
+
+                        <TextView
+                            android:id="@+id/playerHeight1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="5-11"
+                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:textSize="30dp" />
+
+                        <TextView
+                            android:id="@+id/playerWeight1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="200"
+                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:textSize="30dp" />
+                    </TableRow>
+                </TableLayout>
+
+            </LinearLayout>
+            </LinearLayout>
+            
+        <TextView
+            android:id="@+id/playerName1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="5dp"
+            android:text="Player name"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="30dp" />
+
+        <TextView
+            android:id="@+id/hometown1"
+            android:layout_width="wrap_content"
+            android:layout_height="0dip"
+            android:layout_weight="1"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp"
+            android:text="Player hometown"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="30dp" />
+
+            </LinearLayout>
+        
+        </ViewFlipper>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone" >
 
             <ImageView
                 android:id="@+id/imageView1"
@@ -144,26 +464,6 @@
 
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/playerName"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:paddingTop="5dp"
-            android:text="Player name"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textSize="30dp" />
-
-        <TextView
-            android:id="@+id/hometown"
-            android:layout_width="wrap_content"
-            android:layout_height="0dip"
-            android:layout_weight="1"
-            android:paddingBottom="5dp"
-            android:paddingTop="5dp"
-            android:text="Player hometown"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textSize="30dp" />
-
         <LinearLayout
             android:id="@+id/linearLayout4"
             android:layout_width="match_parent"
@@ -254,7 +554,5 @@
                 android:src="@drawable/viewaslist" />
 
         </LinearLayout>
-
-    </LinearLayout>
 
 </LinearLayout>

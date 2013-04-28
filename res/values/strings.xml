@@ -7,4 +7,5 @@
     <string name="label_ok">OK</string>
     <string name="about_header">UH Lineup\n\nGame Data:\n   Date: 10/07/2012\n   Opponent: San Diego State</string>
     <string name="about_disclaimer">This app was not developed by and has not been endorsed by the University of Hawaii.</string>
+    <string name="lock_checkbox_label">Portrait mode (Experimental)</string>
 </resources>
