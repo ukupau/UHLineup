@@ -9,4 +9,5 @@ public class Player {
     public String position;
     public String hometown;
     public String image;
+    public String file;
 }

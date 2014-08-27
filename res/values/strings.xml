@@ -5,7 +5,7 @@
     <string name="playerYear">Jr</string>
     <string name="about_body">Player information provided by http://hawaiiathletics.com/</string>
     <string name="label_ok">OK</string>
-    <string name="about_header">UH Lineup\n\nGame Data:\n   Date: 10/07/2012\n   Opponent: San Diego State</string>
+    <string name="about_header">UH Lineup\n\nGame Data:\n   Date: 08/29/2013\n   Opponent: USC</string>
     <string name="about_disclaimer">This app was not developed by and has not been endorsed by the University of Hawaii.</string>
-    <string name="lock_checkbox_label">Portrait mode (Experimental)</string>
+    <string name="lock_checkbox_label">Portrait mode only (Experimental)</string>
 </resources>

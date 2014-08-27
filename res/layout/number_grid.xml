@@ -8,8 +8,16 @@
         android:id="@+id/textView1"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
         android:text="Select a player number"
+        android:textColor="@color/white"
         android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:background="@color/gray" />
 
     <GridView
         android:id="@+id/gridview"

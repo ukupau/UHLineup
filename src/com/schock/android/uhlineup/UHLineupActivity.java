@@ -17,10 +17,15 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.Drawable;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.text.Editable;
@@ -42,6 +47,9 @@ import android.widget.AdapterView.OnItemClickListener;
 public class UHLineupActivity extends Activity { // implements OnClickListener {
     /** Called when the activity is first created. */
 
+    // http://hawaiiathletics.com/roster.aspx?rp_id=12469&path=football
+    private static final String UH_URL = "http://hawaiiathletics.com/roster.aspx?rp_id=";
+    
     private static final int DIALOG_GRID = 1;
     private static final int DIALOG_ABOUT = 2;
     private static final int DIALOG_NO_DATA = 3;
@@ -63,6 +71,7 @@ public class UHLineupActivity extends Activity { // implements OnClickListener {
     private int[] lastIndex = new int[2];
     private int teamNumber = 0;
     private int[] assignedNumbers;
+    private String currentPlayerFile;
 
     private TextView[] playerNo;
     private TextView[] playerPosition;
@@ -108,6 +117,8 @@ public class UHLineupActivity extends Activity { // implements OnClickListener {
     private int currentView;
     private int lastView;
     
+    private Drawable searchDrawable;
+    
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -116,6 +127,8 @@ public class UHLineupActivity extends Activity { // implements OnClickListener {
         useGrid = (ImageButton) findViewById(R.id.useGrid);
         useList = (ImageButton) findViewById(R.id.useList);
 
+        // Select using player number grid.
+        // Note: Font used on button is Allstar, Small from dafont.com.
         useGrid.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 showDialog(DIALOG_GRID);
@@ -157,7 +170,7 @@ public class UHLineupActivity extends Activity { // implements OnClickListener {
         playerName[1] = (TextView) findViewById(R.id.playerName1);
         playerHometown[1] = (TextView) findViewById(R.id.hometown1);
         playerImage[1] = (ImageView) findViewById(R.id.imageView1);
-        
+
         currentView = 0;
         lastView = 1;
         
@@ -258,6 +271,7 @@ public class UHLineupActivity extends Activity { // implements OnClickListener {
                 // TODO: Remove leading and trailing spaces around "/".
                 player.hometown = playerObj.getString("hometown").replace("/", "\n");
                 player.image = playerObj.getString("image");
+                player.file = playerObj.getString("file");
                 playerNames.put(playerObj.getString("lastname") + ", " + playerObj.getString("firstname"), i);
 
                 players.add(player);
@@ -279,6 +293,34 @@ public class UHLineupActivity extends Activity { // implements OnClickListener {
         }
         Arrays.sort(listview_array);
 
+        playerImage[0].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openPlayerPage(currentPlayerFile);
+            }
+        });
+        
+        playerImage[1].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openPlayerPage(currentPlayerFile);
+            }
+        });
+        
+        playerNo[0].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openPlayerPage(currentPlayerFile);
+            }
+        });
+        
+        playerNo[1].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openPlayerPage(currentPlayerFile);
+            }
+        });
+        
         // Button search = (Button) findViewById(R.id.search);
         // Button next = (Button)findViewById(R.id.next);
         // Button prev = (Button)findViewById(R.id.prev);
@@ -449,6 +491,7 @@ public class UHLineupActivity extends Activity { // implements OnClickListener {
             playerWeight[currentView].setText(Integer.toString(players.get(idx).weight));
             playerName[currentView].setText(players.get(idx).name);
             playerHometown[currentView].setText(players.get(idx).hometown);
+            currentPlayerFile = players.get(idx).file;
             Bitmap bm;
 
             // Order of image retrieval.
@@ -580,6 +623,23 @@ public class UHLineupActivity extends Activity { // implements OnClickListener {
         searchText.setText("");
 
         // getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+    }
+    
+    private void openPlayerPage(String id) {
+        // Open web page.
+        // Check data connectivity.
+        if (id.length() > 0 && hasData()) {
+            String url = UH_URL + id;
+            Intent i = new Intent(Intent.ACTION_VIEW);
+            i.setData(Uri.parse(url));
+            startActivity(i);
+        }
+    }
+    
+    private boolean hasData() {
+        ConnectivityManager cm = (ConnectivityManager)context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+        return activeNetwork.isConnectedOrConnecting();
     }
 
     @Override
@@ -754,11 +814,15 @@ public class UHLineupActivity extends Activity { // implements OnClickListener {
             listView = (ListView) dialog.findViewById(R.id.listView1);
             buttonClose = (Button) dialog.findViewById(R.id.buttonClose);
 
-            listView.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, listview_array));
+            if (searchDrawable == null) {
+                // Remember original search icon drawable.
+                searchDrawable = nameSearch.getCompoundDrawables()[0];
+            }
 
+            listView.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, listview_array));
+            
             nameSearch.addTextChangedListener(new TextWatcher() {
                 public void afterTextChanged(Editable s) {
-                    // Abstract Method of TextWatcher Interface.
                 }
 
                 public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -767,6 +831,10 @@ public class UHLineupActivity extends Activity { // implements OnClickListener {
 
                 public void onTextChanged(CharSequence s, int start, int before, int count) {
                     textlength = nameSearch.getText().length();
+                    if (textlength > 0)
+                        nameSearch.setCompoundDrawables(null, null, null, null);
+                    else
+                        nameSearch.setCompoundDrawables(searchDrawable, null, null, null);
                     array_sort.clear();
                     for (int i = 0; i < listview_array.length; i++) {
                         if (textlength <= listview_array[i].length()) {

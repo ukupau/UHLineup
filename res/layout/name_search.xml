@@ -8,15 +8,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp" >
-        <TextView
-            android:id="@+id/textView1"
+
+        <EditText
+            android:id="@+id/nameSearch"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
             android:layout_weight="1"
-            android:text="Find by name:"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:drawableLeft="@drawable/action_search_edittext"
+            android:ems="10"
+            android:hint="Player Name"
+            android:imeOptions="actionDone"
+            android:inputType="text|textNoSuggestions" />
+
         <Button
             android:id="@+id/buttonClose"
             style="?android:attr/buttonStyleSmall"
@@ -30,16 +33,12 @@
 
     </LinearLayout>
 
-    <EditText
-        android:id="@+id/nameSearch"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:imeOptions="actionDone"
-        android:inputType="text|textNoSuggestions" >
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:background="@color/gray" />
 
-        <requestFocus />
-    </EditText>
     <ListView
         android:id="@+id/listView1"
         android:layout_width="match_parent"

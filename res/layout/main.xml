@@ -25,10 +25,11 @@
             <ImageView
                 android:id="@+id/imageView0"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="fill_parent"
                 android:layout_gravity="center_vertical"
                 android:layout_weight="1"
                 android:contentDescription="Player Image"
+                android:scaleType="fitCenter"
                 android:src="@drawable/uhwarriors1" />
 
             <LinearLayout
@@ -153,6 +154,8 @@
             android:id="@+id/playerName0"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="6dp"
+            android:layout_marginRight="6dp"
             android:paddingTop="5dp"
             android:text="Player name"
             android:textAppearance="?android:attr/textAppearanceLarge"
@@ -162,6 +165,8 @@
             android:id="@+id/hometown0"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="6dp"
+            android:layout_marginRight="6dp"
             android:paddingBottom="5dp"
             android:paddingTop="5dp"
             android:text="Player hometown"
@@ -184,10 +189,11 @@
             <ImageView
                 android:id="@+id/imageView1"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="fill_parent"
                 android:layout_gravity="center_vertical"
                 android:layout_weight="1"
                 android:contentDescription="Player Image"
+                android:scaleType="fitCenter"
                 android:src="@drawable/uhwarriors1" />
 
             <LinearLayout
@@ -368,7 +374,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:contentDescription="Find by Number"
-                android:src="@drawable/grid5" />
+                android:src="@drawable/jersey2" />
 
             <ImageButton
                 android:id="@+id/useList"
@@ -376,7 +382,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:contentDescription="Search by Name"
-                android:src="@drawable/viewaslist" />
+                android:src="@drawable/action_search_button" />
 
         </LinearLayout>
 

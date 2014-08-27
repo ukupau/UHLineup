@@ -1,0 +1,26 @@
+<resources>
+
+    <!--
+        Base application theme for API 14+. This theme completely replaces
+        AppBaseTheme from BOTH res/values/styles.xml and
+        res/values-v11/styles.xml on API 14+ devices.
+    -->
+    <style name="AppBaseTheme" parent="android:Theme.Holo">
+        <!-- API 14 theme customizations can go here. -->
+        <!-- 
+        <item name="android:windowBackground">@color/black</item>
+        <item name="android:textColorPrimary">@color/white</item>
+        <item name="android:textColorSecondary">@color/white</item>
+        <item name="android:buttonStyle">@android:style/Widget.Button</item>
+        <item name="android:buttonStyle">@android:style/Widget.Holo.Button</item>
+        <item name="android:buttonStyleToggle">@android:style/Widget.Button.Toggle</item>
+        <item name="android:buttonStyleToggle">@android:style/Widget.Holo.Button</item>
+        <item name="android:listViewStyle">@android:style/Widget.ListView</item>
+        -->
+        <item name="android:actionBarStyle">@android:style/Widget.ActionBar</item>
+        <item name="android:imageButtonStyle">@android:style/Widget.ImageButton</item>
+        </style>
+    <style name="AppBaseThemeAlt" parent="android:Theme">
+    </style>
+    
+</resources>
