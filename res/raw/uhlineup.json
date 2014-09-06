@@ -1,4 +1,4 @@
-{"date":"20140826","opponent":"Washington","players":[
+{"date":"20140906","opponent":"Oregon State","players":[
 {"number":1,"position":"DB","year":"Jr.","height":"5-9","weight":185,"name":"Ne'Quan Phillips","hometown":"2L Miami, Fla. (Southridge HS)","firstname":"Ne'Quan","lastname":"Phillips","image":"Phillips_Ne_Quan14_7232.JPG","file":"13249"}
 ,{"number":2,"position":"LB","year":"Jr.","height":"6-2","weight":235,"name":"Jerrol Garcia-Williams","hometown":"2L Las Vegas, Nev. (Palo Verde HS)","firstname":"Jerrol","lastname":"Garcia-Williams","image":"Garcia_Williams_Jerrol14_2666.jpg","file":"13213"}
 ,{"number":3,"position":"LB","year":"Sr.","height":"6-3","weight":250,"name":"TJ Taimatuia","hometown":"3L Fagasa, American Samoa (Artesia HS)","firstname":"TJ","lastname":"Taimatuia","image":"Taimatuia_TJ14_7294.JPG","file":"13259"}
@@ -70,6 +70,7 @@
 ,{"number":66,"position":"OL","year":"Fr.","height":"6-3","weight":290,"name":"Dejon Allen","hometown":"RS Compton, Calif. (Dominguez HS)","firstname":"Dejon","lastname":"Allen","image":"Allen_Dejon14_8662.jpg","file":"13197"}
 ,{"number":67,"position":"DL","year":"Jr.","height":"6-0","weight":255,"name":"Haani Tulimaiau","hometown":"SQ Wahiawa, O`ahu (Montana)","firstname":"Haani","lastname":"Tulimaiau","image":"Tulimaiau_Haani14_7278.JPG","file":"13261"}
 ,{"number":68,"position":"OL","year":"Sr.","height":"6-5","weight":290,"name":"Sean Shigematsu","hometown":"3L Kapa`a, Kaua`i (Kapa`a HS)","firstname":"Sean","lastname":"Shigematsu","image":"Shigematsu_Sean14_7169.JPG","file":"13258"}
+,{"number":69,"position":"OL","year":"Jr.","height":"6-1","weight":295,"name":"Brenden Urban","hometown":"SQ Littleton, Colo. (Adams State)","firstname":"Brenden","lastname":"Urban","image":"Urban_Brenden13_3069.JPG","file":"13265"}
 ,{"number":70,"position":"OL","year":"Sr.","height":"6-3","weight":285,"name":"Frank Loyd Jr.","hometown":"3L `Aiea, O`ahu (Moanalua HS)","firstname":"Frank","lastname":"Loyd Jr","image":"Loyd_Jr_Frank14_7245.JPG","file":"13238"}
 ,{"number":71,"position":"OL","year":"Jr.","height":"6-3","weight":285,"name":"Ben Clarke","hometown":"2L Littleton, Colo. (Chatfield HS)","firstname":"Ben","lastname":"Clarke","image":"Clarke_Ben14_7239.JPG","file":"13204"}
 ,{"number":74,"position":"OL","year":"So.","height":"6-4","weight":285,"name":"RJ Hollis","hometown":"JC Phoenix, Ariz. (Scottsdale CC)","firstname":"RJ","lastname":"Hollis","image":"Hollis_RJ14_3458.JPG","file":"13225"}
@@ -79,6 +80,7 @@
 ,{"number":78,"position":"OL","year":"So.","height":"6-5","weight":275,"name":"Leo Koloamatangi","hometown":"1L East Palo Alto, Calif. (Sacred Heart Prep)","firstname":"Leo","lastname":"Koloamatangi","image":"Koloamatangi_Leo_2312.jpg","file":"13231"}
 ,{"number":79,"position":"DL","year":"Sr.","height":"6-4","weight":280,"name":"Nick Childs","hometown":"TR San Diego, Calif. (Avila University)","firstname":"Nick","lastname":"Childs","image":"Childs_Nick14_7163.JPG","file":"13203"}
 ,{"number":80,"position":"WR","year":"Fr.","height":"6-4","weight":200,"name":"Ammon Barker","hometown":"RS Salt Lake City, Utah (Alta HS)","firstname":"Ammon","lastname":"Barker","image":"Barker_Ammon14_3431.JPG","file":"13273"}
+,{"number":81,"position":"WR","year":"Jr.","height":"6-2","weight":215,"name":"Vasquez Haynes","hometown":"1L Pearland, Texas (Blinn College)","firstname":"Vasquez","lastname":"Haynes","image":"Haynes_Vasquez14_7173.JPG","file":"13220"}
 ,{"number":82,"position":"WR","year":"Fr.","height":"5-11","weight":150,"name":"Darrian Josey","hometown":"HS Boynton Beach, Fla. (Boynton Beach HS)","firstname":"Darrian","lastname":"Josey","image":"Josey_Darrian14_2252.JPG","file":"13891"}
 ,{"number":83,"position":"WR","year":"Fr.","height":"6-2","weight":165,"name":"Terrence Sayles","hometown":"HS Kerens, Texas (Kerens HS)","firstname":"Terrence","lastname":"Sayles","image":"Sayles_Terrence14_3504.JPG","file":"13284"}
 ,{"number":84,"position":"WR","year":"Fr.","height":"6-0","weight":175,"name":"Don'Yeh Patterson","hometown":"HS Carson, Calif. (Carson HS)","firstname":"Don'Yeh","lastname":"Patterson","image":"Patterson_Dun_yeh14_2240.JPG","file":"13902"}
