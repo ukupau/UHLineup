@@ -1,4 +1,4 @@
-{"date":"20140906","opponent":"Oregon State","players":[
+{"date":"20140913","opponent":"Northern Iowa","players":[
 {"number":1,"position":"DB","year":"Jr.","height":"5-9","weight":185,"name":"Ne'Quan Phillips","hometown":"2L Miami, Fla. (Southridge HS)","firstname":"Ne'Quan","lastname":"Phillips","image":"Phillips_Ne_Quan14_7232.JPG","file":"13249"}
 ,{"number":2,"position":"LB","year":"Jr.","height":"6-2","weight":235,"name":"Jerrol Garcia-Williams","hometown":"2L Las Vegas, Nev. (Palo Verde HS)","firstname":"Jerrol","lastname":"Garcia-Williams","image":"Garcia_Williams_Jerrol14_2666.jpg","file":"13213"}
 ,{"number":3,"position":"LB","year":"Sr.","height":"6-3","weight":250,"name":"TJ Taimatuia","hometown":"3L Fagasa, American Samoa (Artesia HS)","firstname":"TJ","lastname":"Taimatuia","image":"Taimatuia_TJ14_7294.JPG","file":"13259"}
@@ -50,9 +50,10 @@
 ,{"number":45,"position":"PK","year":"So.","height":"5-10","weight":175,"name":"Ryan Weese","hometown":"TR Olathe, Kan. (Oklahoma State)","firstname":"Ryan","lastname":"Weese","image":"Weese_Ryan14_3296.jpg","file":"13939"}
 ,{"number":46,"position":"DB","year":"Sr.","height":"6-0","weight":195,"name":"Michael Martin","hometown":"1L Honolulu, O`ahu (Mt. San Antonio College)","firstname":"Michael","lastname":"Martin","image":"Martin_Michael14_8587.JPG","file":"13242"}
 ,{"number":47,"position":"LB","year":"Fr.","height":"5-9","weight":195,"name":"Tumua Tuinei","hometown":"HS Honolulu, O`ahu (Punahou School)","firstname":"Tumua","lastname":"Tuinei","image":"Tuinei_Tumuavatasi14_2257.JPG","file":"13911"}
-,{"number":48,"position":"RB","year":"So.","height":"5-11","weight":210,"name":"Ryan Tuiasoa","hometown":"TR Kailua, O`ahu (Punahou School)","firstname":"Ryan","lastname":"Tuiasoa","image":"UHWarriors1.png","file":""}
+,{"number":48,"position":"RB","year":"So.","height":"5-11","weight":210,"name":"Ryan Tuiasoa","hometown":"TR Kailua, O`ahu (Punahou School)","firstname":"Ryan","lastname":"Tuiasoa","image":"Tuiasoa_Ryan_weber_state_photo.jpg","file":"13940"}
 ,{"number":48,"position":"P","year":"Sr.","height":"5-8","weight":190,"name":"Ruben Guzman","hometown":"1L Fontana, Calif. (Riverside City College)","firstname":"Ruben","lastname":"Guzman","image":"Guzman_Ruben14_3479.JPG","file":"13217"}
 ,{"number":49,"position":"WR","year":"Sr.","height":"5-7","weight":155,"name":"Donnie King Jr.","hometown":"2L Kapolei, O`ahu (Kapolei HS)","firstname":"Donnie","lastname":"King Jr","image":"King_Donnie14_3416.JPG","file":"13229"}
+,{"number":50,"position":"DL","year":"Jr.","height":"6-2","weight":320,"name":"Calen Friel","hometown":"1L Kane`ohe, O`ahu (Kailua HS)","firstname":"Calen","lastname":"Friel","image":"Friel_Calen14_8569.JPG","file":"13212"}
 ,{"number":51,"position":"OL","year":"Fr.","height":"6-4","weight":310,"name":"John Wa`a","hometown":"RS Hau`ula, O`ahu (Kahuku HS)","firstname":"John","lastname":"Waa","image":"Waa_John14_3496.JPG","file":"13268"}
 ,{"number":52,"position":"LB","year":"Sr.","height":"5-10","weight":230,"name":"Tevita Lataimua","hometown":"1L San Bruno, Calif. (College of San Mateo)","firstname":"Tevita","lastname":"Lataimua","image":"Lataimua_Tevita14_7281.JPG","file":"13234"}
 ,{"number":53,"position":"DL","year":"Sr.","height":"6-1","weight":275,"name":"Marcus Malepeai","hometown":"3L Honolulu, O`ahu (Radford HS)","firstname":"Marcus","lastname":"Malepeai","image":"Malepeai_Marcus14_8575.JPG","file":"13240"}
@@ -94,7 +95,6 @@
 ,{"number":92,"position":"DL","year":"Sr.","height":"6-2","weight":260,"name":"Beau Yap","hometown":"3L Pearl City, O`ahu (Kamehameha Schools-Kapalama)","firstname":"Beau","lastname":"Yap","image":"Yap_Beau14_7225.JPG","file":"13272"}
 ,{"number":93,"position":"DL","year":"Jr.","height":"6-3","weight":240,"name":"Luke Shawley","hometown":"JC Charlotte, N.C. (San Diego Mesa JC)","firstname":"Luke","lastname":"Shawley","image":"Shawley_Luke14_7211.JPG","file":"13276"}
 ,{"number":94,"position":"DL","year":"Fr.","height":"6-4","weight":275,"name":"Ka`aumoana Gifford","hometown":"HS Wai`anae, O`ahu (Kamehameha Schools-Kapalama)","firstname":"Kaaumoana","lastname":"Gifford","image":"Gifford_Ka_aumoana14_2248.JPG","file":"13889"}
-,{"number":95,"position":"DL","year":"Jr.","height":"6-2","weight":320,"name":"Calen Friel","hometown":"1L Kane`ohe, O`ahu (Kailua HS)","firstname":"Calen","lastname":"Friel","image":"Friel_Calen14_8569.JPG","file":"13212"}
 ,{"number":96,"position":"TE","year":"Fr.","height":"6-3","weight":210,"name":"David Manoa","hometown":"RS San Mateo, Calif. (Aragon HS)","firstname":"David","lastname":"Manoa","image":"Manoa_David14_7273.JPG","file":"13241"}
 ,{"number":97,"position":"DL","year":"Fr.","height":"6-5","weight":220,"name":"Meffy Koloamatangi","hometown":"RS East Palo Alto, Calif. (Woodside HS)","firstname":"Meffy","lastname":"Koloamatangi","image":"Koloamatangi_Meffy14_7189.JPG","file":"13232"}
 ,{"number":98,"position":"DL","year":"Sr.","height":"6-2","weight":255,"name":"Niko Uti","hometown":"1L Kapolei, O`ahu (Snow College)","firstname":"Niko","lastname":"Uti","image":"Uti_Niko14_7253.JPG","file":"13266"}

@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
       package="com.schock.android.uhlineup"
       android:versionCode="6"
-      android:versionName="1.2014.01">
+      android:versionName="1.2014.03">
     <uses-sdk
         android:minSdkVersion="8"
         android:targetSdkVersion="17" />
