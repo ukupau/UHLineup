@@ -48,7 +48,7 @@ public class UHLineupActivity extends Activity { // implements OnClickListener {
     /** Called when the activity is first created. */
 
     // http://hawaiiathletics.com/roster.aspx?rp_id=12469&path=football
-    private static final String UH_URL = "http://hawaiiathletics.com/roster.aspx?rp_id=";
+    private static final String UH_URL = "https://hawaiiathletics.com/roster.aspx?rp_id=";
     
     private static final int DIALOG_GRID = 1;
     private static final int DIALOG_ABOUT = 2;
@@ -656,6 +656,11 @@ public class UHLineupActivity extends Activity { // implements OnClickListener {
         // case R.id.settings:
         // Toast.makeText(this, "User settings", Toast.LENGTH_SHORT).show();
         // return true;
+        case R.id.website:
+            Intent i = new Intent(Intent.ACTION_VIEW);
+            i.setData(Uri.parse("http://www.hawaiiathletics.com/schedule.aspx?path=football"));
+            startActivity(i);
+            return true;
         case R.id.information:
             showDialog(DIALOG_ABOUT);
             return true;

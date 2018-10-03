@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/website"
+          android:icon="@drawable/ic_open_in_browser_black_24dp"
+          android:title="Web Site" />
     <item android:id="@+id/settings"
           android:icon="@drawable/actionsettingslight"
           android:title="Settings" />
